@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MD Raihan Shikder</title>
+    <link rel="stylesheet" href="../assets/css/output.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  </head>
+  <body class=" h-screen font-[Poppins] text-gray-100 max-sm:text-sm">
+    <div class="page-background"></div>
+    <!-- Header of the portfolio page -->
+    <header class="bg-white/10 backdrop-blur-md fixed w-full top-0 left-0 z-40 overflow-hidden">
+      <nav class="flex justify-around max-sm:justify-between items-center p-4 max-sm:p-2 text-[#EDF6F9]">
+        <div class="logo">
+          <a href="index.html">Raihan</a>
+        </div>
+
+        <!-- page links in big screen -->
+        <div class="pages max-sm:hidden">
+          <ul class="flex space-x-4 text-xl">
+            <li class="px-1 hover:scale-102">
+              <a class="px-2 hover-page-links" href="#home">Home</a>
+            </li>
+            <li class="px-1 hover:scale-102">
+              <a class="px-2 hover-page-links" href="#about">About</a>
+            </li>
+            <li class="px-1 hover:scale-102">
+              <a class="px-2 hover-page-links" href="#skill">Skills</a>
+            </li>
+            <li class="px-1 hover:scale-102">
+              <a class="px-2 hover-page-links" href="#project">Projects</a>
+            </li>
+            <li class="px-1 hover:scale-102">
+              <a class="px-2 hover-page-links" href="#education">Education</a>
+            </li>
+            <li class="px-1 hover:scale-102">
+              <a class="px-2 hover-page-links" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- mobile menu hamburger code starts -->
+        <div class="sm:hidden z-40">
+          <div class="menu flex justify-center items-center cursor-pointer transition duration-200">
+            <div id="hamburger-open-menu" class="hamburger-open-menu ">
+              <i class="fas fa-bars text-4xl"></i>
+            </div>
+            <div id="hamburger-close-menu" class="hamburger-close-menu  hidden " >
+              <i class="fas fa-times text-4xl"></i>
+            </div>
+          </div>
+        </div>
+        <!-- mobile menu hamburger code starts -->
+      </nav>
+    </header>
+
+    <!-- Mobile Manu code starts -->
+    <div id="menu-options" class="mobile-menu-options fixed top-13 right-0 z-40 flex justify-center text-2xl w-1/2 h-full transform translate-x-full transition-transform duration-300 ease-in-out bg-gradient-to-br from-blue-950 via-cyan-800 to-teal-700">
+      <div class="openedMenu text-center mt-10 h-2/3 w-full pt-6">
+          <ul class="flex flex-col space-y-10 ">
+            <li class="menu-link opacity-0 transform translate-x-12 transition-all duration-300 ease-in-out">
+              <a class="active:underline menu-links" href="#home">Home</a>
+            </li>
+            <li class="menu-link opacity-0 transform translate-x-12 transition-all duration-300 ease-in-out">
+              <a class="active:underline menu-links" href="#about">About</a>
+            </li>
+            <li class="menu-link opacity-0 transform translate-x-12 transition-all duration-300 ease-in-out">
+              <a class="active:underline menu-links" href="#skill">Skills</a>
+            </li>
+            <li class="menu-link opacity-0 transform translate-x-12 transition-all duration-300 ease-in-out">
+              <a class="active:underline menu-links" href="#project">Projects</a>
+            </li>
+            <li class="menu-link opacity-0 transform translate-x-12 transition-all duration-300 ease-in-out">
+              <a class="active:underline menu-links" href="#education">Education</a>
+            </li>
+            <li class="menu-link opacity-0 transform translate-x-12 transition-all duration-300 ease-in-out">
+              <a class="active:underline menu-links" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+    </div>
+    <!-- Mobile menu code ends -->
+
+    <!-- Main content of the portfolio page -->
+    <main class="mt-20">
+      <!-- Home Section of the portfolio -->
+      <section id="home" class="container mx-auto flex justify-around max-sm:flex-col max-sm:gap-15 items-center pt-30 max-sm:pt-20 pb-30 max-sm:pb-5 ">
+        <!-- Info name and other -->
+        <div class="into-content w-2/5 max-sm:w-full max-sm:px-2 space-y-5 z-20 ">
+          <!-- name and designation -->
+          <div class="space-y-1 ">
+            <h1 class="text-7xl max-sm:text-4xl transition-transform duration-300 hover:translate-x-2 cursor-pointer">
+              Hi, I'm
+              <span class=" bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent text-8xl max-sm:text-6xl">Raihan!</span>
+            </h1>
+            <span id="typing-text" class="text-5xl max-sm:text-3xl bg-gradient-to-r bg-clip-text text-transparent from-blue-500 via-purple-500 to-pink-500"></span>
+            <span class="text-5xl max-sm:text-3xl text-blue-300 animate-pulse">|</span>
+          </div>
+          <!-- info para -->
+          <div class="">
+            <p class="text-2xl max-sm:text-lg text-justify text-gray-300 hover:text-gray-200 transition-colors">
+              Welcome to my portfolio! I'm a passionate Java Backend Developer
+              with expertise in Java, Spring Boot, MySQL and more. I'm also
+              skilled with Frontend technologies. I build projets with creativity
+              and ensuring smooth user experience.
+            </p>
+          </div>
+          <!-- Resume and contact -->
+          <div class="flex max-sm:justify-center items-center gap-8 ">
+            <!-- Download Resume Button -->
+            <div class="w-1/3 max-sm:w-50  flex justify-center items-center max-sm:text-xl">
+                <a class="bg-[#8f2d56] hover:bg-[#611837] w-full py-2 rounded text-[#EDF6F9] text-center  hover:scale-101 ease-in duration-150 cursor-pointer relative group" href="/assets/files/MD_RAIHAN_SHIKDER_RESUME.pdf" download>
+                  <span class="relative z-20">Download Resume</span>
+                  <!-- Top side: Left to right -->
+                  <span class="absolute top-0 left-0 w-0 h-px bg-cyan-500 shadow-[0_0_10px_#77BEF0] group-hover:w-full transition-all duration-500 ease-out"></span>
+                  <!-- Right side: Top to bottom  -->
+                  <span class="absolute top-0 right-0 w-px h-0 bg-purple-500 shadow-[0_0_10px_#3B38A0] group-hover:h-full transition-all duration-500 ease-out"></span>
+                  <!-- Bottom side: Right to left -->
+                  <span class="absolute bottom-0 right-0 w-0 h-px bg-pink-500 shadow-[0_0_10px_#C68EFD] group-hover:w-full transition-all duration-500 ease-out"></span>
+                  <!-- Left side: Bottom to top -->
+                  <span class="absolute bottom-0 left-0 w-px h-0 bg-green-500 shadow-[0_0_10px_#0F828C] group-hover:h-full transition-all duration-500 ease-out"></span>
+                </a>
+            </div>
+
+            <!-- Social media icons -->
+            <div class="flex justify-center items-center pt-5 gap-4">
+              <!-- LinkedIn -->
+              <div class="group flex flex-col items-center hover:scale-110 transition z-20">
+                <a href="https://www.linkedin.com/in/raihan89/" target="_blank" class="text-gray-200 hover:text-blue-500 text-3xl size-6 hover:bg-white flex justify-center items-center rounded">
+                  <i class="fab fa-linkedin "></i>
+                </a>
+                <span class="text-sm text-gray-200 mt-2 opacity-0 group-hover:opacity-100 transition duration-300">LinkedIn</span>
+              </div>
+
+              <!-- GitHub -->
+              <div class="group flex flex-col items-center hover:scale-110 transition">
+                <a href="https://github.com/Raihan-89" target="_blank" class="text-gray-200 hover:text-gray-950 hover:bg-white size-7 rounded-full flex items-center justify-center text-3xl">
+                  <i class="fab fa-github"></i>
+                </a>
+                <span class="text-sm text-gray-200 mt-2 opacity-0 group-hover:opacity-100 transition duration-300">GitHub</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Image right side -->
+        <div class="rounded-full max-sm:rounded-xl cursor-pointer animate-image z-20">
+          <img class="myImg" src="../assets/images/RAIHAN_Main.png " alt="Raihan"/>
+        </div>
+      </section>
+
+      <!-- About section of the portfolio -->
+      <section id="about" class="container mx-auto mt-20 pt-30 flex flex-wrap justify-around items-center max-sm:text-xl max-sm:gap-5 ">
+        <!-- description side -->
+        <div class="rounded w-4/5 max-sm:w-full h-2/3 flex flex-col items-center gap-20 max-sm:gap-10 lg:w-2/4 z-20 ">
+          <h1 class="text-6xl max-sm:text-5xl font-bold bg-gradient-to-r from-[#caf0f8] via-[#5e60ce] to-[#d81159] bg-clip-text text-transparent">
+            About Me
+          </h1>
+          <p class="text-2xl text-justify font-medium text-gray-300 hover:text-gray-200 transition-colors w-2/3 max-sm:w-full p-2 ">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi
+            tenetur exercitationem inventore ea dolores! Veritatis aperiam fugit
+            earum nemo quia, vero libero quos ab dolor minima aliquid. Deleniti,
+            quod, nam voluptatibus quibusdam autem rerum officiis inventore dicta
+            necessitatibus quo voluptas nemo reiciendis. Repudiandae, id officiis.
+          </p>
+          <div class="w-2/3 flex justify-center items-center gap-4">
+            <!-- LinkedIn -->
+            <div class="group flex flex-col items-center hover:scale-110 transition">
+              <a href="https://www.linkedin.com/in/raihan89/" target="_blank" class="text-gray-200 hover:text-blue-500 text-3xl  size-6 hover:bg-white flex justify-center items-center rounded">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <span class="text-sm text-gray-200 mt-2 opacity-0 group-hover:opacity-100 transition duration-300">LinkedIn</span>
+            </div>
+
+            <!-- GitHub -->
+            <div class="group flex flex-col items-center hover:scale-110 transition">
+              <a href="https://github.com/Raihan-89" target="_blank" class="text-gray-200 hover:text-gray-900 text-3xl hover:bg-white size-7 rounded-full flex items-center justify-center ">
+                <i class="fab fa-github"></i>
+              </a>
+              <span class="text-sm text-gray-200 mt-2 opacity-0 group-hover:opacity-100 transition duration-300">GitHub</span>
+            </div>
+
+            <!-- Facebook -->
+            <!-- <div class="group flex flex-col items-center hover:scale-110 transition">
+                <a
+                  href="https://facebook.com"
+                  target="_blank"
+                  class="text-gray-600 hover:text-blue-600 text-3xl"
+                >
+                  <i class="fab fa-facebook"></i>
+                </a>
+                <span
+                  class="text-sm text-gray-600 mt-2 opacity-0 group-hover:opacity-100 transition duration-300"
+                  >Facebook</span
+                >
+              </div> -->
+
+            <!-- Instagram -->
+            <!-- <div class="group flex flex-col items-center hover:scale-110 transition">
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  class="text-gray-600 hover:text-pink-500 text-3xl"
+                >
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <span
+                  class="text-sm text-gray-600 mt-2 opacity-0 group-hover:opacity-100 transition duration-300"
+                  >Instagram</span
+                >
+              </div> -->
+          </div>
+        </div>
+        <!-- Quick info side -->
+        <div class="w-3/5 max-sm:w-[95%] h-1/2 z-20 mx-auto lg:w-1/3 bg-[#006D77] text-white text-justify p-6 max-sm:p-3 rounded-md shadow-md hover:shadow-[#83C5BE] hover:drop-shadow-xl hover:scale-102 transition duration-500 hover:border-3 hover:border-[#83C5BE]">
+          <h2 class="text-3xl font-bold text-[#EDF6F9] mb-6 ">
+            Quick Info About Me:
+          </h2>
+          <div class="flex flex-col gap-5 ">
+            <div class="flex items-start gap-4 mb-4 ">
+              <div class="bg-[#8f2d56] p-3 rounded-md">
+                <i class="fas fa-graduation-cap text-white text-xl hover:rotate-360 duration-1000"></i>
+              </div>
+              <p class="text-slate-300 text-xl">
+                BSc in Computer Science and Engineering at Southeast University
+              </p>
+            </div>
+
+            <div class="flex items-start gap-4 mb-4">
+              <div class="bg-[#1c2541] p-3 rounded-md">
+                <i class="fas fa-code text-white text-xl hover:rotate-360 duration-1000"></i>
+              </div>
+              <p class="text-slate-300 text-xl">
+                Passionate about Backend Development
+              </p>
+            </div>
+
+            <div class="flex items-start gap-4 mb-4">
+              <div class="bg-[#aa3e98] p-3 rounded-md">
+                <i class="fas fa-puzzle-piece text-white text-xl hover:rotate-360 duration-1000"></i>
+              </div>
+              <p class="text-slate-300 text-xl">
+                Love to solve programming problems
+              </p>
+            </div>
+
+            <div class="flex items-start gap-4 text-xl">
+              <div class="bg-[#4b1d3f] p-3 rounded-md">
+                <i class="fas fa-chalkboard-teacher text-white text-xl hover:rotate-360 duration-1000"></i>
+              </div>
+              <p class="text-slate-300">Enjoy teaching and sharing knowledge</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills section of the portfolio -->
+      <section id="skill" class="container mx-auto mt-20 pt-20 flex justify-center items-center">
+        <div class="w-3/5 max-sm:w-full max-sm:p-4 pb-10 flex flex-col justify-center items-center space-y-5 z-20">
+          <!-- skill heading -->
+          <div class="space-y-1 text-center">
+            <h1 class="text-5xl max-sm:text-4xl font-bold">Technical Skills</h1>
+            <p class="text-3xl max-sm:text-2xl font-light text-gray-300">
+              My expertise across various technologies and tools
+            </p>
+          </div>
+          <!-- Technology filter buttons -->
+          <div class="bg-[#c33c54] flex flex-wrap max-sm:gap-2 justify-center items-center px-3 py-1 space-x-2 rounded text-lg text-[#fffffa]">
+            <button class="filter-btn px-1 rounded-2xl shadow-[#4b1d3f] shadow-inner bg-[#c33c54] transition duration-200" data-category="languages" >
+              Languages
+            </button>
+            <button class="filter-btn px-1 rounded-2xl transition duration-200" data-category="frontend">
+              Frontend
+            </button>
+            <button class="filter-btn px-1 rounded-2xl transition duration-200" data-category="backend">
+              Backend
+            </button>
+            <button class="filter-btn px-1 rounded-2xl transition duration-200" data-category="database">
+              Databases
+            </button>
+            <button class="filter-btn px-1 rounded-2xl transition duration-200" data-category="tools">
+              Tools
+            </button>
+          </div>
+          <!-- Tech skill showing div -->
+          <div class="bg-[#36213e] w-[60%] max-sm:w-[98%] h-30 rounded p-4 text-xl text-white flex flex-wrap flex-col justify-center items-center gap-1 ">
+            <!-- language skills -->
+            <div class="skills languages flex flex-wrap justify-center items-center space-x-2 gap-2" data-category="languages">
+              <span class="skill-name bg-[#554971] px-4 py-px rounded inline-block transition duration-500">C</span>
+              <span class="skill-name bg-[#554971] px-2 py-px rounded inline-block transition duration-500">C++</span>
+              <span class="skill-name bg-[#554971] px-2 py-px rounded inline-block transition duration-500">
+                <i class="fa-brands fa-java text-xl me-2"></i>Java</span>
+              <span class="skill-name bg-[#554971] px-2 py-px rounded inline-block transition duration-500">
+                <i class="fa-brands fa-python text-xl me-2"></i>Python</span>
+            </div>
+            <!-- frontend skills -->
+            <div class="skills frontend flex flex-wrap justify-center items-center space-x-2 gap-2 hidden" data-category="frontend">
+              <span class="skill-name bg-[#554971] px-2 py-px rounded opacity-0 translate-y-2 inline-block transition duration-500">
+                <i class="fa-brands fa-html5 text-xl me-2"></i>HTML</span>
+              <span class="skill-name bg-[#554971] px-2 py-px rounded opacity-0 translate-y-2 inline-block transition duration-500">
+                <i class="fa-brands fa-css3-alt text-xl me-2"></i>CSS</span>
+              <span class="skill-name bg-[#554971] px-2 py-px rounded opacity-0 translate-y-2 inline-block transition duration-500">
+                <i class="fa-brands fa-js text-xl me-2"></i>JavaScrip</span>
+              <span class="skill-name bg-[#554971] px-2 py-px rounded opacity-0 translate-y-2 inline-block transition duration-500">Tailwind CSS</span>
+              <span class="skill-name bg-[#554971] px-2 py-px rounded opacity-0 translate-y-2 inline-block transition duration-500">
+                <i class="fa-brands fa-react text-xl me-2"></i>React</span>
+            </div>
+            <!-- backend skills -->
+            <div class="skills backend flex flex-wrap justify-center items-center space-x-2 gap-2 hidden" data-category="backend">
+              <span class="skill-name bg-[#554971] px-2 py-px rounded opacity-0 translate-y-2 inline-block transition duration-500">
+                <i class="fa-brands fa-java text-xl me-2"></i>Java</span>
+              <span class="skill-name bg-[#554971] px-2 py-px rounded opacity-0 translate-y-2 inline-block transition duration-500">Spring Boot</span>
+            </div>
+            <!-- database skills -->
+            <div class="skills database flex flex-wrap justify-center items-center space-x-2 gap-2 hidden" data-category="database">
+              <span class="skill-name bg-[#554971] px-2 py-px rounded opacity-0 translate-y-2 inline-block transition duration-500">MySQL</span>
+              <span class="skill-name bg-[#554971] px-2 py-px rounded opacity-0 translate-y-2 inline-block transition duration-500">PostgreSQL</span>
+              <span class="skill-name bg-[#554971] px-2 py-px rounded opacity-0 translate-y-2 inline-block transition duration-500">MongoDB</span>
+            </div>
+            <!-- tools skills -->
+            <div class="skills tools flex flex-wrap justify-center items-center space-x-2 gap-2 hidden" data-category="tools">
+              <span class="skill-name bg-[#554971] px-2 py-px rounded opacity-0 translate-y-2 inline-block transition duration-500">
+                <i class="fa-brands fa-git-alt text-xl me-2"></i>Git</span>
+              <span class="skill-name bg-[#554971] px-2 py-px rounded opacity-0 translate-y-2 inline-block transition duration-500">
+                <i class="fa-brands fa-github text-xl me-2"></i>GitHub</span>
+              <span class="skill-name bg-[#554971] px-2 py-px rounded opacity-0 translate-y-2 inline-block transition duration-500">
+                <i class="fa-brands fa-figma text-xl me-2"></i>Figma</span>
+              <span class="skill-name bg-[#554971] px-2 py-px rounded opacity-0 translate-y-2 inline-block transition duration-500">Postman</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Project section of the portfolio -->
+      <section id="project" class="container mx-auto space-y-10 pb-20 mt-20 pt-20">
+        <!-- project Heading -->
+        <div class="flex flex-col justify-center items-center gap-3 p-3">
+          <h1 class="text-5xl font-bold z-20">My Projects</h1>
+          <p class="text-3xl max-sm:text-xl text-gray-300 z-20 text-center">
+            Projects that showcase my skills and passion for development
+          </p>
+        </div>
+        <!-- Project cards -->
+        <div class="flex flex-wrap justify-center max-sm:p-3 gap-10 text-gray-200">
+          <!-- Tour Ostad Project -->
+          <div class="bg-white/10 backdrop-blur-lg z-20 w-90 h-140 rounded-2xl p-4 flex flex-col space-y-5 translate-y-0 hover:outline hover:shadow-[0_0_15px_rgba(20,184,166,1)] transition duration-400 hover:scale-101 hover:-translate-y-3 group">
+
+            <!-- Project Image -->
+            <div class="h-[50%] rounded-xl overflow-hidden">
+              <img class="object-cover w-full h-full rounded-xl group-hover:scale-106 group-hover:blur-[2px] transition-transform duration-500" src="../assets/images/tour-ostad.png" alt="Tour Ostad"/>
+            </div>
+
+            <!-- Title and brief info -->
+            <div class="h-[25%]">
+              <h1 class="text-3xl font-bold">Tour Ostad</h1>
+              <p class="text-lg text-justify">
+                A tour agency website to book tour packages across Bangladesh
+              </p>
+            </div>
+
+            <!-- Live preview -->
+            <div class="h-[25%] flex flex-col gap-5">
+              <!-- technology used -->
+              <div class="flex justify-center items-center space-x-4">
+                <span class="bg-[#006D77] outline px-4 py-2 rounded relative project-links">HTML</span>
+                <span class="bg-[#006D77] outline px-4 py-2 rounded relative project-links">CSS</span>
+                <span class="bg-[#006D77] outline px-4 py-2 rounded relative project-links">JavaScript</span>
+              </div>
+              <!-- preview buttons -->
+              <div class="flex justify-around items-center space-x-10 p-1">
+                <a
+                  class="bg-[#006D77] font-bold px-5 py-2 rounded border-2 border-transparent hover:border-white
+                  relative project-links"
+                  href="https://raihan-89.github.io/Tour-Ostad-Website/"
+                  target="_blank"
+                  >Live Preview</a
+                >
+                <a
+                  class="bg-[#006D77] font-bold px-5 py-2 rounded border-2 border-transparent hover:border-white relative project-links"
+                  href="https://github.com/Raihan-89/Tour-Ostad-Website"
+                  target="_blank"
+                  >GitHub</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Real Estate Management System Project -->
+          <div class="bg-white/10 backdrop-blur-lg z-20 w-90 h-140 rounded-2xl p-4 flex flex-col space-y-5 translate-y-0 hover:outline hover:shadow-[0_0_15px_rgba(20,184,166,1)] transition duration-500 hover:scale-101 hover:-translate-y-3 group">
+            <!-- Project image or video -->
+            <div class="h-[50%] rounded-xl overflow-hidden">
+              <img id="rems-img" src="/assets/images/real-estate.png" alt="Bechakena Project" class="object-cover h-full w-full rounded-xl group-hover:scale-106 group-hover:blur-[2px] transition-transform duration-500">
+              <video id="rems-video" class="w-full h-full bg-amber-300 object-cover hidden" controls controlsList="nodownload" muted >
+                <source src="/assets/videos/rems_project_video.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <!-- Title and brief info -->
+            <div class="h-[25%]">
+              <h1 class="text-3xl font-bold">REMS</h1>
+              <p class="text-lg text-justify">
+                REMS - Real Estate Management System is a web application for managing users, properties etc.
+              </p>
+            </div>
+
+            <!-- Preview buttons -->
+            <div class="h-[25%] flex flex-col gap-5">
+              <div class="flex justify-center items-center space-x-4">
+                <span class="bg-[#006D77] outline px-4 py-2 rounded relative project-links">Java</span>
+                <span class="bg-[#006D77] outline px-4 py-2 rounded relative project-links">Spring Boot</span>
+              </div>
+              <div class="flex justify-around items-center space-x-10 p-1">
+                <a id="rems-preview-btn" class="bg-[#006D77] font-bold px-5 py-2 rounded border-2 border-transparent hover:border-white relative project-links" onclick="openVideo('rems')" target="_blank">Video Preview</a>
+                <a id="rems-close-btn" class="bg-[#006D77] font-bold px-5 py-2 rounded border-2 border-transparent hover:border-white relative project-links hidden" onclick="closeVideo('rems')" target="_blank">Close Preview</a>
+                <a class="bg-[#006D77] font-bold px-5 py-2 rounded border-2 border-transparent hover:border-white relative project-links" href="https://github.com/Raihan-89/Real-Estate-Management-System" target="_blank">GitHub</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bechakena Project -->
+          <div class="bg-white/10 backdrop-blur-lg z-20 w-90 h-140 rounded-2xl p-4 flex flex-col space-y-5 translate-y-0 hover:outline hover:shadow-[0_0_15px_rgba(20,184,166,1)] transition duration-500 hover:scale-101 hover:-translate-y-3 group">
+
+            <!-- Project image or video -->
+            <div class="h-[50%] rounded-xl overflow-hidden">
+              <img id="javaFx-img" src="/assets/images/bechakena-project.png" alt="Bechakena Project" class="object-cover h-full w-full rounded-xl group-hover:scale-106 group-hover:blur-[2px] transition-transform duration-500">
+              <video id="javaFx-video" class="w-full h-full bg-amber-300 object-cover hidden" controls controlsList="nodownload" muted >
+                <source src="/assets/videos/bechakena__javafx_project.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <!-- Title and brief info -->
+            <div class="h-[25%]">
+              <h1 class="text-3xl font-bold">Bechakena</h1>
+              <p class="text-lg text-justify">
+                A desktop application for managing a shop's inventory and sales.
+              </p>
+            </div>
+
+            <!-- Preview buttons -->
+            <div class="h-[25%] flex flex-col gap-5">
+              <div class="flex justify-center items-center space-x-4">
+                <span class="bg-[#006D77] outline px-4 py-2 rounded relative project-links">Java</span>
+                <span class="bg-[#006D77] outline px-4 py-2 rounded relative project-links">JavaFX</span>
+              </div>
+              <div class="flex justify-around items-center space-x-10 p-1">
+                <a id="javaFx-preview-btn" class="bg-[#006D77] font-bold px-5 py-2 rounded border-2 border-transparent hover:border-white relative project-links" onclick="openVideo('javaFx')" target="_blank">Video Preview</a>
+                <a id="javaFx-close-btn" class="bg-[#006D77] font-bold px-5 py-2 rounded border-2 border-transparent hover:border-white relative project-links hidden" onclick="closeVideo('javaFx')" target="_blank">Close Preview</a>
+                <a class="bg-[#006D77] font-bold px-5 py-2 rounded border-2 border-transparent hover:border-white relative project-links" href="https://github.com/Raihan-89/Java-Bechakena-Project" target="_blank">GitHub</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Car Game Project -->
+          <div class="bg-white/10 backdrop-blur-lg z-20 w-90 h-140 rounded-2xl p-4  flex flex-col space-y-5 translate-y-0  hover:outline hover:shadow-[0_0_15px_rgba(20,184,166,1)] transition duration-500 hover:scale-101 hover:-translate-y-3 group">
+
+            <!-- Project img or video -->
+            <div class="h-[50%] rounded-xl overflow-hidden">
+              <img id="glut-img" class="object-cover h-full w-full rounded-xl group-hover:scale-106 group-hover:blur-[2px] transition-transform duration-500" src="/assets/images/glut_project.png" alt="Car Game">
+              <video id="glut-video" class="w-full h-full bg-amber-300 object-cover hidden" controls controlsList="nodownload" muted >
+                <source src="/assets/videos/glut-video.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <!-- Title and brief info -->
+            <div class="h-[25%]">
+              <h1 class="text-3xl font-bold">Car Game</h1>
+              <p class="text-lg text-justify">
+                A 2D car racing game where the game ends on collision with another car.
+              </p>
+            </div>
+
+            <!-- Preview button -->
+            <div class="h-[25%] flex flex-col gap-5">
+              <div class="flex justify-center items-center space-x-4">
+                <span class="bg-[#006D77] outline px-4 py-2 rounded relative project-links">C++</span>
+                <span class="bg-[#006D77] outline px-4 py-2 rounded relative project-links">OpenGL</span>
+                <span class="bg-[#006D77] outline px-4 py-2 rounded relative project-links">Glut</span>
+              </div>
+              <div class="flex justify-around items-center space-x-10 p-1">
+                <a id="glut-preview-btn" class="bg-[#006D77] font-bold px-5 py-2 rounded border-2 border-transparent hover:border-white relative project-links" onclick="openVideo('glut')" target="_blank">Video Preview</a>
+                <a id="glut-close-btn" class="bg-[#006D77] font-bold px-5 py-2 rounded border-2 border-transparent hover:border-white relative project-links hidden" onclick="closeVideo('glut')" target="_blank">Close Preview</a>
+                <a class="bg-[#006D77] font-bold px-5 py-2 rounded border-2 border-transparent hover:border-white relative project-links" href="https://github.com/Raihan-89/Computer-Graphics-Glut-Project" target="_blank">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education section of the portfolio -->
+      <section id="education" class="container mx-auto space-y-10 pb-20 mt-20 pt-20 max-sm:p-3">
+        <!-- Education headings -->
+        <div class="info flex flex-col items-center justify-center">
+          <h1 class="text-5xl font-bold z-20">Education</h1>
+          <p class="text-3xl max-sm:text-xl max-sm:text-center text-gray-300 z-20">
+            My Education journey to be an Engineer
+          </p>
+        </div>
+        <!-- cards -->
+        <div class="w-full relative text-xl z-20">
+          <div class="absolute left-1/2 h-full bg-[#006D77] size-1 max-sm:hidden"></div>
+          <div class="h-full flex flex-col max-sm:justify-center items-center gap-20 max-sm:gap-10">
+            <div class="relative sm:left-[17.5%] w-[35%] max-sm:w-full flex items-center sm:ml-2">
+              <div class="max-sm:hidden w-20 bg-[#8f2d56] h-1"></div>
+              <div class="bg-[#004346] text-white p-6 max-sm:p-3 rounded-lg space-y-2 transition duration-300 hover:scale-105 shadow-lg hover:shadow-[#8f2d56]">
+                <div class="w-full flex items-center gap-2">
+                  <div class="bg-[#8f2d56] p-3 rounded-md">
+                    <i
+                      class="fas fa-graduation-cap text-white text-xl hover:rotate-360 duration-1000"
+                    ></i>
+                  </div>
+                  <h1>BSc in Compueter Science and Engineering</h1>
+                </div>
+                <h1>Southeast University</h1>
+                <p>2021-2025</p>
+                <p>
+                  Completed Computer Science and Engineering with focus on
+                  Software Engineer and Programmer.
+                </p>
+              </div>
+            </div>
+            <div class="relative sm:right-[17.5%] w-[35%] max-sm:w-full flex flex-row-reverse items-center">
+              <div class="max-sm:hidden w-13 bg-[#004346] h-1"></div>
+              <div class="bg-[#8f2d56] text-white p-6 max-sm:p-3 rounded-lg space-y-2 transition duration-300 hover:scale-105 shadow-md hover:shadow-teal-500">
+                <div class="w-full flex items-center gap-2">
+                  <div class="bg-[#004346] p-3 rounded-md">
+                    <i
+                      class="fas fa-graduation-cap text-white text-xl hover:rotate-360 duration-1000"
+                    ></i>
+                  </div>
+                  <h1>HSC in Science</h1>
+                </div>
+                <h1>Govt. Science College</h1>
+                <p>2018-2020</p>
+                <p>Completed Higher Secondary School Certificate with GPA-5.00</p>
+              </div>
+            </div>
+            <div class="relative sm:left-[17.5%] w-[35%] max-sm:w-full flex items-center sm:ml-2">
+              <div class="max-sm:hidden w-14 bg-[#8f2d56] h-1"></div>
+              <div class="bg-[#004346] text-white p-6 max-sm:p-3 rounded-lg space-y-2 transition duration-300 hover:scale-105 shadow-lg hover:shadow-[#8f2d56]">
+                <div class="w-full flex items-center gap-2">
+                  <div class="bg-[#8f2d56] p-3 rounded-md">
+                    <i
+                      class="fas fa-graduation-cap text-white text-xl hover:rotate-360 duration-1000"
+                    ></i>
+                  </div>
+                  <h1>SSC in Science</h1>
+                </div>
+                <h1>Khilgaon Govt. High School</h1>
+                <p>2017-2018</p>
+                <p>Completed Secondary School Certificate in with GPA-5.00</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact section of the portfolio -->
+      <section id="contact" class="container mx-auto pb-20 mb-20 mt-20 pt-20 ">
+        <!-- heading -->
+        <div class="relative z-20">
+          <h1 class="text-5xl max-sm:text-4xl text-center font-bold underline">Get in touch</h1>
+        </div>
+        <div class="w-full flex max-sm:flex-col max-sm:items-center justify-center gap-20 pt-10 h-full">
+          <!-- Contact info -->
+          <div class="space-y-5 p-5 w-2/5 max-sm:w-full rounded-lg z-20">
+            <p class="text-justify text-3xl max-sm:text-xl">
+              I'm always excited to connect with new people and discuss
+              interesting opportunites. Feel free to reach out through any of
+              these:
+            </p>
+            <!-- Contact info -->
+            <div class="space-y-5">
+              <div class="bg-[#522546] backdrop-blur-lg outline group p-3 max-sm:p-1 rounded-lg text-xl transition-all hover:translate-x-2  max-sm:active:-translate-y-2 duration-300 flex items-center gap-5 max-sm:gap-1">
+                <div class="size-13 max-sm:size-9 flex justify-center items-center bg-[#36213e] rounded-full">
+                  <i class="fa fa-envelope text-4xl max-sm:text-2xl"></i>
+                </div>
+                <div class="">
+                  <h1 class="text-2xl font-bold">Email</h1>
+                  <p class="text-gray-400 group-hover:text-gray-200 max-sm:text-gray-200 transition-colors duration-300 max-sm:text-lg">
+                    raihan.shikder84@gmail.com
+                  </p>
+                </div>
+              </div>
+              <div class="bg-[#522546] backdrop-blur-lg outline group p-3 max-sm:p-1 rounded-lg text-xl transition-all hover:translate-x-2
+              max-sm:active:-translate-y-2 duration-300 flex items-center gap-5 max-sm:gap-1">
+                <div class="size-13 max-sm:size-9 flex justify-center items-center bg-[#36213e] rounded-full">
+                  <i class="fa fa-phone text-4xl max-sm:text-2xl"></i>
+                </div>
+                <div class="">
+                  <h1 class="text-2xl font-bold">Phone</h1>
+                  <p class="text-gray-400 group-hover:text-gray-200 max-sm:text-gray-200 transition-colors duration-300 max-sm:text-lg">
+                    01580841980
+                  </p>
+                </div>
+              </div>
+              <div class="bg-[#522546] backdrop-blur-lg outline group p-3 max-sm:p-1 rounded-lg text-xl transition-all hover:translate-x-2
+              max-sm:active:-translate-y-2 duration-300 flex items-center gap-5 max-sm:gap-1">
+                <div class="size-13 max-sm:size-9 flex justify-center items-center bg-[#36213e] rounded-full">
+                  <i class="fa fa-map-marker text-4xl max-sm:text-2xl"></i>
+                </div>
+                <div class="">
+                  <h1 class="text-2xl font-bold">Location</h1>
+                  <p class="text-gray-400 group-hover:text-gray-200 max-sm:text-gray-200 transition-colors duration-300 max-sm:text-lg">
+                    Dhaka, Bangladesh
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Contact form -->
+          <div class="bg-[#522546] backdrop-blur-lg z-20 border space-y-5 p-5 w-1/3 max-sm:w-[95%] rounded-lg text-xl">
+            <div class="h-full px-5 ">
+              <form action="" class="space-y-3 h-full text-gray-100">
+                <div class="flex flex-col gap-2">
+                  <label class="font-bold self-start" for="name">Name</label>
+                  <input name="name" id="name" type="text" class="bg-[#36213e] p-2 rounded border-2 border-[#8ac6d0] focus:outline-none focus:ring-2 focus:ring-[#b8f3ff] focus:border-transparent transition-all duration-200"
+                  placeholder="Enter your name"/>
+                </div>
+                <div class="flex flex-col gap-2">
+                  <label class="font-bold self-start" for="email">Email</label>
+                  <input name="email" id="email" type="text" class="bg-[#36213e] p-2 rounded border-2 border-[#8ac6d0] focus:outline-none focus:ring-2 focus:ring-[#b8f3ff] focus:border-transparent transition-all duration-200"
+                  placeholder="email@example.com"/>
+                </div>
+                <div class="flex flex-col gap-2 h-2/5">
+                  <label class="font-bold self-start" for="message">Message</label>
+                  <textarea name="message" id="message" class="bg-[#36213e] h-full p-2 rounded border-2 border-[#8ac6d0] focus:outline-none focus:ring-2 focus:ring-[#b8f3ff] focus:border-transparent transition-all duration-200"
+                  placeholder="Write your message here..."></textarea>
+                </div>
+                <input type="submit" value="Submit" class="w-full bg-[#36213e] border-2 border-[#8ac6d0] hover:scale-102 hover:bg-[#482c53] transition-all duration-200 p-3 rounded"/>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    
+    <!-- Footer of the portfolio -->
+    <footer class="relative bottom-0 z-30">
+      <div class="bg-cyan-900 backdrop-blur-lg w-full h-full pt-10 pb-3 flex flex-col justify-center items-center space-y-2 text-gray-100 text-lg max-sm:text-sm">
+        <div class="container flex max-sm:flex-col max-sm:gap-5 max-sm:items-center justify-between">
+          <!-- My info -->
+          <div class="w-1/4 max-sm:w-[95%]">
+            <h1 class="text-2xl font-medium">Md. Raihan Shikder</h1>
+            <p class="text-justify max-sm:text-lg">Backend Developer (Java & Spring Boot), also have expertise in
+              Frontend based in Dhaka, Bangladesh.</p>
+          </div>
+
+          <!-- contact info -->
+          <div class="w-1/4 flex flex-col items-center space-y-6 ">
+            <h1 class="text-xl font-medium">Contact</h1>
+            <div class="flex space-x-5">
+
+              <!-- Email -->
+              <div class="hover:scale-110 transition">
+                  <a href="mailto:raihan.shikder84@gmail.com" target="_blank" class="text-gray-300 hover:text-gray-100 text-3xl">
+                    <i class="fa fa-envelope"></i>
+                  </a>
+              </div>
+
+              <!-- Phone -->
+              <div class="hover:scale-110 transition" >
+                  <a href="tel:+8801580841980" target="_blank" class="text-gray-300 hover:text-gray-100 text-3xl">
+                    <i class="fa fa-phone"></i>
+                  </a>
+              </div>
+
+              <!-- LinkedIn -->
+              <div class="hover:scale-110 transition" >
+                  <a href="https://www.linkedin.com/in/raihan89/" target="_blank" class="inline-flex rounded-2xl text-gray-300 hover:text-blue-400 text-4xl">
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+              </div>
+
+              <!-- GitHub -->
+              <div class="hover:scale-110 transition">
+                  <a href="https://github.com/Raihan-89" target="_blank" class="inline-flex text-gray-300 hover:text-gray-900 text-4xl">
+                    <i class="fab fa-github"></i>
+                  </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- quick links -->
+          <div class="w-1/4 max-sm:w-[50%] flex flex-col items-center space-y-2">
+            <h1 class="text-xl font-medium underline">Quick Links</h1>
+            <div class="pages max-sm:text-lg max-sm:pb-2 flex items-center">
+              <ul class="flex flex-col space-y-1 max-sm:space-y-2 text-center">
+                <li class="hover:scale-102 sm:self-start">
+                  <a class="hover-page-links" href="#home">Home</a>
+                </li>
+                <li class="hover:scale-102 sm:self-start">
+                  <a class="hover-page-links" href="#about">About</a>
+                </li>
+                <li class="hover:scale-102 sm:self-start">
+                  <a class="hover-page-links" href="#skill">Skills</a>
+                </li>
+                <li class="hover:scale-102 sm:self-start">
+                  <a class="hover-page-links" href="#project">Projects</a>
+                </li>
+                <li class="hover:scale-102 sm:self-start">
+                  <a class="hover-page-links" href="#education">Education</a>
+                </li>
+                <li class="hover:scale-102 sm:self-start">
+                  <a class="hover-page-links" href="#contact">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <hr class="bg-white w-full">
+
+        <!-- Copyright Section -->
+        <div class="w-[80%] max-sm:w-[95%] max-sm:gap-5 flex justify-between">
+          <div class="">&copy; <span id="year"></span> Md. Raihan Shikder. All rights reserved.</div>
+          <div class="">Built with <i class="fa fa-heart text-white animate-pulse"></i>  using Tailwind</div>
+        </div>
+      </div>
+    </footer>
+    
+    <script src="/assets/js/script.js"></script>
+  </body>
+</html>

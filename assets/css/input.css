@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@theme {
+  --animate-rotate-border: border-rotate 2s linear infinite;
+  @keyframes border-rotate {
+    to {
+      --border-angle: 360deg;
+    }
+  }
+  --animate-fadeOut: fadeOut 0.8s forwards;
+  @keyframes fadeOut {
+    to {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(2);
+    }
+  }
+}
+
+@layer components {
+  
+  .hover-page-links {
+    @apply pb-1 relative 
+        after:content-['']
+        after:absolute
+        after:left-0 after:bottom-0 
+        after:h-[1px] after:w-full  
+        after:scale-x-0
+        after:bg-[#EDF6F9]
+        after:origin-right
+        after:transition-transform after:duration-300
+        hover:after:scale-x-100
+        hover:after:origin-left;
+  }
+  .page-background {
+    @apply fixed inset-0 -z-10 bg-gradient-to-br from-[#160f29] via-cyan-900 to-teal-900;
+  }
+  .logo {
+    @apply font-[Playfair_Display] text-4xl hover:scale-102 transition-transform duration-50;
+    @apply max-sm:text-3xl;
+  }
+  .myImg {
+    @apply w-86 max-sm:w-70 rounded-full max-sm:rounded-xl  hover:brightness-107;
+  }
+  .animate-image {
+    @apply hover:scale-105 duration-300 animate-rotate-border p-1 
+    bg-conic/[from_var(--border-angle)] from-transparent via-transparent to-[#B2B0E8];
+  }
+  .project-links {
+    @apply hover:scale-110 transition duration-500 
+    after:absolute after:content-[''] after:h-full 
+    after:w-full after:bg-[#cfdeff] 
+    after:left-0 after:scale-x-0 after:origin-left 
+    after:opacity-30 after:bottom-0 
+    after:transition-transform after:duration-700 
+    hover:after:scale-x-100 hover:after:origin-left;
+  }
+  .trail {
+    @apply fixed size-3 rounded-full pointer-events-none opacity-80 transform -translate-x-1/2 -translate-y-1/2 animate-fadeOut;
+  }
+
+  .firework-particle {
+    @apply fixed rounded-full pointer-events-none will-change-transform;
+  }
+}
