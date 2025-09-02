@@ -2,9 +2,5 @@
   "dependencies": {
     "@tailwindcss/cli": "^4.1.11",
     "tailwindcss": "^4.1.11"
-  },
-  "scripts": {
-    "install": "npm install",
-    "build": "tailwindcss -i ./assets/css/input.css -o ./assets/css/output.css"
   }
 }
