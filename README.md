@@ -19,4 +19,4 @@ This portfolio website showcases myself, projects, and skills with an interactiv
 
 <hr style="height: 4px;">
 
-© 2025 MD Raihan Shikder. All Rights Reserved.
+© 2025 Md. Raihan Shikder. All Rights Reserved.
