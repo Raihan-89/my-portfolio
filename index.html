@@ -14,7 +14,7 @@
     <div class="page-background"></div>
     <!-- Header of the portfolio page -->
     <header class="bg-white/10 backdrop-blur-md fixed w-full top-0 left-0 z-40 overflow-hidden">
-      <nav class="flex justify-around max-sm:justify-between items-center p-4 max-sm:p-2 text-[#EDF6F9]">
+      <nav class="flex justify-around max-sm:justify-between max-xl:justify-between items-center p-4 max-sm:p-2 text-[#EDF6F9]">
         <div class="logo">
           <a href="index.html">Raihan</a>
         </div>
@@ -88,9 +88,9 @@
     <!-- Main content of the portfolio page -->
     <main class="mt-20">
       <!-- Home Section of the portfolio -->
-      <section id="home" class="container mx-auto flex justify-around max-sm:flex-col max-sm:gap-15 items-center pt-30 max-sm:pt-20 pb-30 max-sm:pb-5 ">
+      <section id="home" class="container mx-auto flex justify-around max-sm:flex-col max-xl:justify-between max-sm:gap-15 items-center pt-30 max-sm:pt-20 pb-30 max-sm:pb-5 ">
         <!-- Info name and other -->
-        <div class="into-content w-2/5 max-sm:w-full max-sm:px-2 space-y-5 z-20 ">
+        <div class="into-content w-2/5 max-sm:w-full max-xl:w-3/5 max-sm:px-2 space-y-5 z-20">
           <!-- name and designation -->
           <div class="space-y-1 ">
             <h1 class="text-7xl max-sm:text-4xl transition-transform duration-300 hover:translate-x-2 cursor-pointer">
@@ -156,11 +156,11 @@
       <!-- About section of the portfolio -->
       <section id="about" class="container mx-auto mt-20 pt-30 flex flex-wrap justify-around items-center max-sm:text-xl max-sm:gap-5 ">
         <!-- description side -->
-        <div class="rounded w-4/5 max-sm:w-full h-2/3 flex flex-col items-center gap-20 max-sm:gap-10 lg:w-2/4 z-20 ">
+        <div class="w-3/5 max-sm:w-full max-xl:w-[48%] h-2/3 flex flex-col items-center gap-20 max-sm:gap-10 z-20 ">
           <h1 class="text-6xl max-sm:text-5xl font-bold bg-gradient-to-r from-[#caf0f8] via-[#5e60ce] to-[#d81159] bg-clip-text text-transparent">
             About Me
           </h1>
-          <p class="text-2xl text-justify font-medium text-gray-300 hover:text-gray-200 transition-colors w-2/3 max-sm:w-full p-2 ">
+          <p class="text-2xl text-justify font-medium text-gray-300 hover:text-gray-200 transition-colors w-2/3 max-xl:w-full max-sm:w-full p-2 ">
             Hello! I'm a passionate Backend Developer. I also bring valuable Frontend expertise to create seamless, end-to-end solutions. I'm proficient in multiple programming languages including Java, Python, C, and C++, with hands-on experience in modern frameworks like Spring Boot for robust backend systems. On the frontend, I work with HTML, CSS, JavaScript, Tailwind CSS, and have foundational knowledge in React.js to build responsive, user-friendly interfaces.
           </p>
           <div class="w-2/3 flex justify-center items-center gap-4">
@@ -212,7 +212,7 @@
           </div>
         </div>
         <!-- Quick info side -->
-        <div class="w-3/5 max-sm:w-[95%] h-1/2 z-20 mx-auto lg:w-1/3 bg-[#006D77] text-white text-justify p-6 max-sm:p-3 rounded-md shadow-md hover:shadow-[#83C5BE] hover:drop-shadow-xl hover:scale-102 transition duration-500 hover:border-3 hover:border-[#83C5BE]">
+        <div class="w-2/5 max-sm:w-[95%] h-1/2 z-20 max-xl:w-[42%] bg-[#006D77] text-white text-justify p-6 max-sm:p-3 rounded-md shadow-md hover:shadow-[#83C5BE] hover:drop-shadow-xl hover:scale-102 transition duration-500 hover:border-3 hover:border-[#83C5BE]">
           <h2 class="text-3xl font-bold text-[#EDF6F9] mb-6 ">
             Quick Info About Me:
           </h2>
@@ -283,7 +283,7 @@
             </button>
           </div>
           <!-- Tech skill showing div -->
-          <div class="bg-[#36213e] w-[60%] max-sm:w-[98%] h-30 rounded p-4 text-xl text-white flex flex-wrap flex-col justify-center items-center gap-1 ">
+          <div class="bg-[#36213e] w-[60%] max-sm:w-[98%] max-xl:w-full h-30 rounded p-4 text-xl text-white flex flex-wrap flex-col justify-center items-center gap-1 ">
             <!-- language skills -->
             <div class="skills languages flex flex-wrap justify-center items-center space-x-2 gap-2" data-category="languages">
               <span class="skill-name bg-[#554971] px-4 py-px rounded inline-block transition duration-500">C</span>
@@ -326,6 +326,7 @@
               <span class="skill-name bg-[#554971] px-2 py-px rounded opacity-0 translate-y-2 inline-block transition duration-500">
                 <i class="fa-brands fa-figma text-xl me-2"></i>Figma</span>
               <span class="skill-name bg-[#554971] px-2 py-px rounded opacity-0 translate-y-2 inline-block transition duration-500">Postman</span>
+              <span class="skill-name bg-[#554971] px-2 py-px rounded opacity-0 translate-y-2 inline-block transition duration-500">Docker</span>
             </div>
           </div>
         </div>
@@ -499,7 +500,7 @@
         <div class="w-full relative text-xl z-20">
           <div class="absolute left-1/2 h-full bg-[#006D77] size-1 max-sm:hidden"></div>
           <div class="h-full flex flex-col max-sm:justify-center items-center gap-20 max-sm:gap-10">
-            <div class="relative sm:left-[17.5%] w-[35%] max-sm:w-full flex items-center sm:ml-2">
+            <div class="relative sm:left-[17.5%] lg:left-[24%] xl:left-[17.5%] w-[35%] max-sm:w-full max-xl:w-[48%] flex items-center sm:ml-2">
               <div class="max-sm:hidden w-20 bg-[#8f2d56] h-1"></div>
               <div class="bg-[#004346] text-white p-6 max-sm:p-3 rounded-lg space-y-2 transition duration-300 hover:scale-105 shadow-lg hover:shadow-[#8f2d56]">
                 <div class="w-full flex items-center gap-2">
@@ -518,7 +519,7 @@
                 </p>
               </div>
             </div>
-            <div class="relative sm:right-[17.5%] w-[35%] max-sm:w-full flex flex-row-reverse items-center">
+            <div class="relative sm:right-[17.5%] lg:right-[24%] xl:right-[17.5%] w-[35%] max-sm:w-full max-xl:w-[48%] flex flex-row-reverse items-center">
               <div class="max-sm:hidden w-13 bg-[#004346] h-1"></div>
               <div class="bg-[#8f2d56] text-white p-6 max-sm:p-3 rounded-lg space-y-2 transition duration-300 hover:scale-105 shadow-md hover:shadow-teal-500">
                 <div class="w-full flex items-center gap-2">
@@ -534,7 +535,7 @@
                 <p>Completed Higher Secondary School Certificate with GPA-5.00</p>
               </div>
             </div>
-            <div class="relative sm:left-[17.5%] w-[35%] max-sm:w-full flex items-center sm:ml-2">
+            <div class="relative sm:left-[17.5%] lg:left-[24%] xl:left-[17.5%] w-[35%] max-sm:w-full max-xl:w-[48%] flex items-center sm:ml-2">
               <div class="max-sm:hidden w-14 bg-[#8f2d56] h-1"></div>
               <div class="bg-[#004346] text-white p-6 max-sm:p-3 rounded-lg space-y-2 transition duration-300 hover:scale-105 shadow-lg hover:shadow-[#8f2d56]">
                 <div class="w-full flex items-center gap-2">
@@ -560,10 +561,10 @@
         <div class="relative z-20">
           <h1 class="text-5xl max-sm:text-4xl text-center font-bold underline">Get in touch</h1>
         </div>
-        <div class="w-full flex max-sm:flex-col max-sm:items-center justify-center gap-20 pt-10 h-full">
+        <div class="w-full flex max-sm:flex-col max-sm:items-center justify-center max-xl:justify-between gap-20 pt-10 h-full">
           <!-- Contact info -->
-          <div class="space-y-5 p-5 w-2/5 max-sm:w-full rounded-lg z-20">
-            <p class="text-justify text-3xl max-sm:text-xl">
+          <div class="space-y-5 p-5 w-2/5 max-xl:w-[45%] max-sm:w-full rounded-lg z-20">
+            <p class="text-justify text-2xl max-sm:text-xl">
               I'm always excited to connect with new people and discuss
               interesting opportunites. Feel free to reach out through any of
               these:
@@ -608,7 +609,7 @@
             </div>
           </div>
           <!-- Contact form -->
-          <div class="bg-[#522546] backdrop-blur-lg z-20 border space-y-5 p-5 w-1/3 max-sm:w-[95%] rounded-lg text-xl">
+          <div class="bg-[#522546] backdrop-blur-lg z-20 border space-y-5 p-5 pb-20 w-1/3 max-sm:w-[95%] max-xl:w-[50%] rounded-lg text-xl">
             <div class="h-full px-5 ">
               <form name="contact" method="post" netlify class="space-y-3 h-full text-gray-100">
                 <div class="flex flex-col gap-2">
@@ -637,12 +638,12 @@
     <!-- Footer of the portfolio -->
     <footer class="relative bottom-0 z-30">
       <div class="bg-cyan-900 backdrop-blur-lg w-full h-full pt-10 pb-3 flex flex-col justify-center items-center space-y-2 text-gray-100 text-lg max-sm:text-sm">
-        <div class="container flex max-sm:flex-col max-sm:gap-5 max-sm:items-center justify-between">
+        <div class="container flex max-sm:flex-col max-xl:w-full max-sm:gap-5 max-sm:items-center justify-between">
           <!-- My info -->
-          <div class="w-1/4 max-sm:w-[95%]">
+          <div class="w-1/4 max-sm:w-[95%] max-xl:w-[35%]">
             <h1 class="text-2xl font-medium">Md. Raihan Shikder</h1>
             <p class="text-justify max-sm:text-lg">Backend Developer (Java & Spring Boot), also have expertise in
-              Frontend based in Dhaka, Bangladesh.</p>
+              Frontend Development.<br>Dhaka, Bangladesh</p>
           </div>
 
           <!-- contact info -->

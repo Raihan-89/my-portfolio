@@ -46,7 +46,7 @@
     @apply max-sm:text-3xl;
   }
   .myImg {
-    @apply w-86 max-sm:w-70 rounded-full max-sm:rounded-xl  hover:brightness-107;
+    @apply w-86 max-xl:w-78 max-sm:w-70 rounded-full max-sm:rounded-xl  hover:brightness-107;
   }
   .animate-image {
     @apply hover:scale-105 duration-300 animate-rotate-border p-1 
