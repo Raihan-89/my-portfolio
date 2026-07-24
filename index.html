@@ -3,765 +3,825 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MD Raihan Shikder</title>
-    <link rel="stylesheet" href="../assets/css/output.css" />
+    <title>MD Raihan Shikder | Backend Developer</title>
+    <meta name="description" content="Jr Software Engineer specializing in Java, Spring Boot, and Microservices" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            }
+          }
+        }
+      }
+    </script>
   </head>
-  <body class=" h-screen font-[Poppins] text-gray-100 max-sm:text-sm">
-    <div class="page-background"></div>
-    <!-- Header of the portfolio page -->
-    <header class="bg-white/10 backdrop-blur-md fixed w-full top-0 left-0 z-40 overflow-hidden">
-      <nav class="flex justify-around max-sm:justify-between max-xl:justify-between items-center p-4 max-sm:p-2 text-[#EDF6F9]">
-        <div class="logo">
-          <a href="index.html">Raihan</a>
-        </div>
+  <body class="bg-[#0a0a0a] text-gray-200 antialiased">
+    <style>
+      html { scroll-behavior: smooth; scroll-padding-top: 4rem; }
+      ::-webkit-scrollbar { width: 6px; }
+      ::-webkit-scrollbar-track { background: #0a0a0a; }
+      ::-webkit-scrollbar-thumb { background: #1a1a1a; border-radius: 3px; }
+      ::-webkit-scrollbar-thumb:hover { background: #2a2a2a; }
+      ::selection { background: rgba(16, 185, 129, 0.3); color: white; }
+      .skill-item { opacity: 1; transform: translateY(0); }
+      .skill-item.hidden-skill { display: none; }
+      .filter-btn.active { border-color: #10b981; color: #10b981; background: rgba(16, 185, 129, 0.1); }
+      .nav-link.active { color: #10b981; }
+    </style>
 
-        <!-- page links in big screen -->
-        <div class="pages max-sm:hidden">
-          <ul class="flex space-x-4 text-xl">
-            <li class="px-1 hover:scale-102">
-              <a class="px-2 hover-page-links" href="#home">Home</a>
-            </li>
-            <li class="px-1 hover:scale-102">
-              <a class="px-2 hover-page-links" href="#about">About</a>
-            </li>
-            <li class="px-1 hover:scale-102">
-              <a class="px-2 hover-page-links" href="#skill">Skills</a>
-            </li>
-            <li class="px-1 hover:scale-102">
-              <a class="px-2 hover-page-links" href="#project">Projects</a>
-            </li>
-            <li class="px-1 hover:scale-102">
-              <a class="px-2 hover-page-links" href="#education">Education</a>
-            </li>
-            <li class="px-1 hover:scale-102">
-              <a class="px-2 hover-page-links" href="#contact">Contact</a>
-            </li>
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <a href="#home" class="text-xl font-bold font-['JetBrains_Mono'] text-emerald-400 hover:text-emerald-300 transition">
+            &lt;Raihan /&gt;
+          </a>
+
+          <!-- Desktop Nav -->
+          <ul class="hidden md:flex items-center gap-1">
+            <li><a href="#home" class="nav-link px-3 py-2 text-sm font-medium text-gray-300 hover:text-emerald-400 transition-colors">Home</a></li>
+            <li><a href="#about" class="nav-link px-3 py-2 text-sm font-medium text-gray-300 hover:text-emerald-400 transition-colors">About</a></li>
+            <li><a href="#experience" class="nav-link px-3 py-2 text-sm font-medium text-gray-300 hover:text-emerald-400 transition-colors">Experience</a></li>
+            <li><a href="#skills" class="nav-link px-3 py-2 text-sm font-medium text-gray-300 hover:text-emerald-400 transition-colors">Skills</a></li>
+            <li><a href="#projects" class="nav-link px-3 py-2 text-sm font-medium text-gray-300 hover:text-emerald-400 transition-colors">Projects</a></li>
+            <li><a href="#education" class="nav-link px-3 py-2 text-sm font-medium text-gray-300 hover:text-emerald-400 transition-colors">Education</a></li>
+            <li><a href="#certifications" class="nav-link px-3 py-2 text-sm font-medium text-gray-300 hover:text-emerald-400 transition-colors">Certs</a></li>
+            <li><a href="#contact" class="nav-link px-3 py-2 text-sm font-medium text-gray-300 hover:text-emerald-400 transition-colors">Contact</a></li>
           </ul>
-        </div>
 
-        <!-- mobile menu hamburger code starts -->
-        <div class="sm:hidden z-40">
-          <div class="menu flex justify-center items-center cursor-pointer transition duration-200">
-            <div id="hamburger-open-menu" class="hamburger-open-menu ">
-              <i class="fas fa-bars text-4xl"></i>
+          <!-- Mobile Hamburger -->
+          <button id="menu-toggle" class="md:hidden text-gray-300 hover:text-emerald-400 transition p-2" aria-label="Toggle menu">
+            <i class="fas fa-bars text-xl" id="menu-open"></i>
+            <i class="fas fa-times text-xl hidden" id="menu-close"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="md:hidden hidden bg-[#0f0f0f]/95 backdrop-blur-lg border-t border-gray-800">
+        <ul class="px-4 py-4 space-y-1">
+          <li><a href="#home" class="mobile-link block px-4 py-3 text-gray-300 hover:text-emerald-400 hover:bg-gray-800/50 rounded-lg transition">Home</a></li>
+          <li><a href="#about" class="mobile-link block px-4 py-3 text-gray-300 hover:text-emerald-400 hover:bg-gray-800/50 rounded-lg transition">About</a></li>
+          <li><a href="#experience" class="mobile-link block px-4 py-3 text-gray-300 hover:text-emerald-400 hover:bg-gray-800/50 rounded-lg transition">Experience</a></li>
+          <li><a href="#skills" class="mobile-link block px-4 py-3 text-gray-300 hover:text-emerald-400 hover:bg-gray-800/50 rounded-lg transition">Skills</a></li>
+          <li><a href="#projects" class="mobile-link block px-4 py-3 text-gray-300 hover:text-emerald-400 hover:bg-gray-800/50 rounded-lg transition">Projects</a></li>
+          <li><a href="#education" class="mobile-link block px-4 py-3 text-gray-300 hover:text-emerald-400 hover:bg-gray-800/50 rounded-lg transition">Education</a></li>
+          <li><a href="#certifications" class="mobile-link block px-4 py-3 text-gray-300 hover:text-emerald-400 hover:bg-gray-800/50 rounded-lg transition">Certs</a></li>
+          <li><a href="#contact" class="mobile-link block px-4 py-3 text-gray-300 hover:text-emerald-400 hover:bg-gray-800/50 rounded-lg transition">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+          <!-- Left Content -->
+          <div class="flex-1 space-y-6 text-center lg:text-left">
+            <div class="space-y-2">
+              <p class="text-emerald-400 font-['JetBrains_Mono'] text-sm tracking-wider">Hello, I'm</p>
+              <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white">
+                Md. Raihan Shikder
+              </h1>
+              <div class="flex items-center justify-center lg:justify-start gap-2">
+                <span id="typing-text" class="text-xl sm:text-2xl lg:text-3xl font-['JetBrains_Mono'] text-emerald-400"></span>
+                <span class="text-emerald-400 animate-pulse text-xl sm:text-2xl lg:text-3xl">|</span>
+              </div>
             </div>
-            <div id="hamburger-close-menu" class="hamburger-close-menu  hidden " >
-              <i class="fas fa-times text-4xl"></i>
-            </div>
-          </div>
-        </div>
-        <!-- mobile menu hamburger code starts -->
-      </nav>
-    </header>
 
-    <!-- Mobile Manu code starts -->
-    <div id="menu-options" class="mobile-menu-options fixed top-13 right-0 z-40 flex justify-center text-2xl w-1/2 h-full transform translate-x-full transition-transform duration-300 ease-in-out bg-gradient-to-br from-blue-950 via-cyan-800 to-teal-700">
-      <div class="openedMenu text-center mt-10 h-2/3 w-full pt-6">
-          <ul class="flex flex-col space-y-10 ">
-            <li class="menu-link opacity-0 transform translate-x-12 transition-all duration-300 ease-in-out">
-              <a class="active:underline menu-links" href="#home">Home</a>
-            </li>
-            <li class="menu-link opacity-0 transform translate-x-12 transition-all duration-300 ease-in-out">
-              <a class="active:underline menu-links" href="#about">About</a>
-            </li>
-            <li class="menu-link opacity-0 transform translate-x-12 transition-all duration-300 ease-in-out">
-              <a class="active:underline menu-links" href="#skill">Skills</a>
-            </li>
-            <li class="menu-link opacity-0 transform translate-x-12 transition-all duration-300 ease-in-out">
-              <a class="active:underline menu-links" href="#project">Projects</a>
-            </li>
-            <li class="menu-link opacity-0 transform translate-x-12 transition-all duration-300 ease-in-out">
-              <a class="active:underline menu-links" href="#education">Education</a>
-            </li>
-            <li class="menu-link opacity-0 transform translate-x-12 transition-all duration-300 ease-in-out">
-              <a class="active:underline menu-links" href="#contact">Contact</a>
-            </li>
-          </ul>
-        </div>
-    </div>
-    <!-- Mobile menu code ends -->
-
-    <!-- Main content of the portfolio page -->
-    <main class="mt-20">
-      <!-- Home Section of the portfolio -->
-      <section id="home" class="container mx-auto flex justify-around max-sm:flex-col max-xl:justify-between max-sm:gap-15 items-center pt-30 max-sm:pt-20 pb-30 max-sm:pb-5 ">
-        <!-- Info name and other -->
-        <div class="into-content w-2/5 max-sm:w-full max-xl:w-3/5 max-sm:px-2 space-y-5 z-20">
-          <!-- name and designation -->
-          <div class="space-y-1 ">
-            <h1 class="text-7xl max-sm:text-4xl transition-transform duration-300 hover:translate-x-2 cursor-pointer">
-              Hi, I'm
-              <span class=" bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent text-8xl max-sm:text-6xl">Raihan!</span>
-            </h1>
-            <span id="typing-text" class="text-5xl max-sm:text-3xl bg-gradient-to-r bg-clip-text text-transparent from-blue-500 via-purple-500 to-pink-500"></span>
-            <span class="text-5xl max-sm:text-3xl text-blue-300 animate-pulse">|</span>
-          </div>
-          <!-- info para -->
-          <div class="">
-            <p class="text-2xl max-sm:text-lg text-justify text-gray-300 hover:text-gray-200 transition-colors">
-              Welcome to my portfolio! I'm a passionate Java Backend Developer
-              with expertise in Java, Spring Boot, MySQL and more. I'm also
-              skilled with Frontend technologies. I build projets with creativity
-              and ensuring smooth user experience.
+            <p class="text-gray-400 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
+              Jr Software Engineer at Karooth IT, building scalable enterprise applications with Java, Spring Boot, and microservices. Passionate about clean architecture and reliable systems.
             </p>
-          </div>
-          <!-- Resume and contact -->
-          <div class="flex max-sm:justify-center items-center gap-8 ">
-            <!-- Download Resume Button -->
-            <div class="w-1/3 max-sm:w-50  flex justify-center items-center max-sm:text-xl">
-                <a class="bg-[#8f2d56] hover:bg-[#611837] w-full py-2 rounded text-[#EDF6F9] text-center  hover:scale-101 ease-in duration-150 cursor-pointer relative group" href="/assets/files/MD_RAIHAN_SHIKDER_RESUME.pdf" download>
-                  <span class="relative z-20">Download Resume</span>
-                  <!-- Top side: Left to right -->
-                  <span class="absolute top-0 left-0 w-0 h-px bg-cyan-500 shadow-[0_0_10px_#77BEF0] group-hover:w-full transition-all duration-500 ease-out"></span>
-                  <!-- Right side: Top to bottom  -->
-                  <span class="absolute top-0 right-0 w-px h-0 bg-purple-500 shadow-[0_0_10px_#3B38A0] group-hover:h-full transition-all duration-500 ease-out"></span>
-                  <!-- Bottom side: Right to left -->
-                  <span class="absolute bottom-0 right-0 w-0 h-px bg-pink-500 shadow-[0_0_10px_#C68EFD] group-hover:w-full transition-all duration-500 ease-out"></span>
-                  <!-- Left side: Bottom to top -->
-                  <span class="absolute bottom-0 left-0 w-px h-0 bg-green-500 shadow-[0_0_10px_#0F828C] group-hover:h-full transition-all duration-500 ease-out"></span>
-                </a>
-            </div>
 
-            <!-- Social media icons -->
-            <div class="flex justify-center items-center pt-5 gap-4">
-              <!-- LinkedIn -->
-              <div class="group flex flex-col items-center hover:scale-110 transition z-20">
-                <a href="https://www.linkedin.com/in/raihan89/" target="_blank" class="text-gray-200 hover:text-blue-500 text-3xl size-6 hover:bg-white flex justify-center items-center rounded">
-                  <i class="fab fa-linkedin "></i>
-                </a>
-                <span class="text-sm text-gray-200 mt-2 opacity-0 group-hover:opacity-100 transition duration-300">LinkedIn</span>
+            <!-- Terminal Card -->
+            <div class="bg-[#111111] border border-gray-800 rounded-lg p-4 max-w-lg mx-auto lg:mx-0 font-['JetBrains_Mono'] text-sm">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                <span class="w-3 h-3 rounded-full bg-green-500"></span>
               </div>
-
-              <!-- GitHub -->
-              <div class="group flex flex-col items-center hover:scale-110 transition">
-                <a href="https://github.com/Raihan-89" target="_blank" class="text-gray-200 hover:text-gray-950 hover:bg-white size-7 rounded-full flex items-center justify-center text-3xl">
-                  <i class="fab fa-github"></i>
-                </a>
-                <span class="text-sm text-gray-200 mt-2 opacity-0 group-hover:opacity-100 transition duration-300">GitHub</span>
+              <div class="space-y-1 text-xs sm:text-sm">
+                <p class="text-gray-500"><span class="text-emerald-400">$</span> cat role.txt</p>
+                <p class="text-white">Jr Software Engineer (Java)</p>
+                <p class="text-gray-500"><span class="text-emerald-400">$</span> cat stack.txt</p>
+                <p class="text-white">Java | Spring Boot | RabbitMQ | Docker</p>
+                <p class="text-gray-500"><span class="text-emerald-400">$</span> <span class="animate-pulse">_</span></p>
               </div>
             </div>
-          </div>
-        </div>
 
-        <!-- Image right side -->
-        <div class="rounded-full max-sm:rounded-xl cursor-pointer animate-image z-20">
-          <img class="myImg" src="../assets/images/RAIHAN_Main.png " alt="Raihan"/>
-        </div>
-      </section>
-
-      <!-- About section of the portfolio -->
-      <section id="about" class="container mx-auto mt-20 pt-30 flex flex-wrap justify-around items-center max-sm:text-xl max-sm:gap-5 ">
-        <!-- description side -->
-        <div class="w-1/2 max-sm:w-full max-xl:w-[48%] h-2/3 flex flex-col items-center gap-20 max-sm:gap-10 z-20 ">
-          <h1 class="text-6xl max-sm:text-5xl font-bold bg-gradient-to-r from-[#caf0f8] via-[#5e60ce] to-[#d81159] bg-clip-text text-transparent">
-            About Me
-          </h1>
-          <p class="text-2xl text-justify font-medium text-gray-300 hover:text-gray-200 transition-colors w-2/3 max-xl:w-full max-sm:w-full p-2 ">
-            Hello! I'm a passionate Backend Developer. I also bring valuable Frontend expertise to create seamless, end-to-end solutions. I'm proficient in multiple programming languages including Java, Python, C, and C++, with hands-on experience in modern frameworks like Spring Boot for robust backend systems. On the frontend, I work with HTML, CSS, JavaScript, Tailwind CSS, and have foundational knowledge in React.js to build responsive, user-friendly interfaces.
-          </p>
-          <div class="w-2/3 flex justify-center items-center gap-4">
-            <!-- LinkedIn -->
-            <div class="group flex flex-col items-center hover:scale-110 transition">
-              <a href="https://www.linkedin.com/in/raihan89/" target="_blank" class="text-gray-200 hover:text-blue-500 text-3xl  size-6 hover:bg-white flex justify-center items-center rounded">
-                <i class="fab fa-linkedin"></i>
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+              <a href="#projects" class="w-full sm:w-auto px-6 py-3 bg-emerald-500 hover:bg-emerald-400 text-black font-semibold rounded-lg transition-all duration-300 text-center">
+                View Projects
               </a>
-              <span class="text-sm text-gray-200 mt-2 opacity-0 group-hover:opacity-100 transition duration-300">LinkedIn</span>
+              <a href="/assets/files/MD_RAIHAN_SHIKDER_RESUME.pdf" download class="w-full sm:w-auto px-6 py-3 border border-emerald-500 text-emerald-400 hover:bg-emerald-500/10 font-semibold rounded-lg transition-all duration-300 text-center">
+                <i class="fas fa-download mr-2"></i>Download CV
+              </a>
             </div>
 
-            <!-- GitHub -->
-            <div class="group flex flex-col items-center hover:scale-110 transition">
-              <a href="https://github.com/Raihan-89" target="_blank" class="text-gray-200 hover:text-gray-900 text-3xl hover:bg-white size-7 rounded-full flex items-center justify-center ">
+            <!-- Social Links -->
+            <div class="flex items-center justify-center lg:justify-start gap-4 pt-2">
+              <a href="https://github.com/Raihan-89" target="_blank" class="text-gray-400 hover:text-white transition-colors text-xl" aria-label="GitHub">
                 <i class="fab fa-github"></i>
               </a>
-              <span class="text-sm text-gray-200 mt-2 opacity-0 group-hover:opacity-100 transition duration-300">GitHub</span>
+              <a href="https://www.linkedin.com/in/raihan89/" target="_blank" class="text-gray-400 hover:text-blue-400 transition-colors text-xl" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="https://codeforces.com/profile/Raihan89" target="_blank" class="text-gray-400 hover:text-blue-400 transition-colors text-xl" aria-label="Codeforces">
+                <i class="fas fa-code"></i>
+              </a>
+              <a href="mailto:raihan.shikder84@gmail.com" class="text-gray-400 hover:text-emerald-400 transition-colors text-xl" aria-label="Email">
+                <i class="fas fa-envelope"></i>
+              </a>
             </div>
-
-            <!-- Facebook -->
-            <!-- <div class="group flex flex-col items-center hover:scale-110 transition">
-                <a
-                  href="https://facebook.com"
-                  target="_blank"
-                  class="text-gray-600 hover:text-blue-600 text-3xl"
-                >
-                  <i class="fab fa-facebook"></i>
-                </a>
-                <span
-                  class="text-sm text-gray-600 mt-2 opacity-0 group-hover:opacity-100 transition duration-300"
-                  >Facebook</span
-                >
-              </div> -->
-
-            <!-- Instagram -->
-            <!-- <div class="group flex flex-col items-center hover:scale-110 transition">
-                <a
-                  href="https://instagram.com"
-                  target="_blank"
-                  class="text-gray-600 hover:text-pink-500 text-3xl"
-                >
-                  <i class="fab fa-instagram"></i>
-                </a>
-                <span
-                  class="text-sm text-gray-600 mt-2 opacity-0 group-hover:opacity-100 transition duration-300"
-                  >Instagram</span
-                >
-              </div> -->
           </div>
-        </div>
-        <!-- Quick info side -->
-        <div class="w-1/3 mx-auto max-sm:w-[95%] max-xl:w-[42%] h-1/2 z-20 bg-[#006D77] text-white text-justify p-6 max-sm:p-3 rounded-md shadow-md hover:shadow-[#83C5BE] hover:drop-shadow-xl hover:scale-102 transition duration-500 hover:border-3 hover:border-[#83C5BE]">
-          <h2 class="text-3xl font-bold text-[#EDF6F9] mb-6 ">
-            Quick Info About Me:
-          </h2>
-          <div class="flex flex-col gap-5 ">
-            <div class="flex items-start gap-4 mb-4 ">
-              <div class="bg-[#8f2d56] p-3 rounded-md">
-                <i class="fas fa-graduation-cap text-white text-xl hover:rotate-360 duration-1000"></i>
-              </div>
-              <p class="text-slate-300 text-xl">
-                BSc in Computer Science and Engineering at Southeast University
-              </p>
-            </div>
 
-            <div class="flex items-start gap-4 mb-4">
-              <div class="bg-[#1c2541] p-3 rounded-md">
-                <i class="fas fa-code text-white text-xl hover:rotate-360 duration-1000"></i>
+          <!-- Right - Profile Image -->
+          <div class="flex-shrink-0">
+            <div class="relative">
+              <div class="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-2 border-emerald-500/30 shadow-lg shadow-emerald-500/10">
+                <img src="assets/images/RAIHAN_Main.png" alt="Md. Raihan Shikder" class="w-full h-full object-cover" />
               </div>
-              <p class="text-slate-300 text-xl">
-                Passionate about Backend Development
-              </p>
-            </div>
-
-            <div class="flex items-start gap-4 mb-4">
-              <div class="bg-[#aa3e98] p-3 rounded-md">
-                <i class="fas fa-puzzle-piece text-white text-xl hover:rotate-360 duration-1000"></i>
+              <div class="absolute -bottom-2 -right-2 bg-emerald-500 text-black px-3 py-1 rounded-full text-sm font-semibold font-['JetBrains_Mono']">
+                Open to Work
               </div>
-              <p class="text-slate-300 text-xl">
-                Love to solve programming problems
-              </p>
-            </div>
-
-            <div class="flex items-start gap-4 text-xl">
-              <div class="bg-[#4b1d3f] p-3 rounded-md">
-                <i class="fas fa-chalkboard-teacher text-white text-xl hover:rotate-360 duration-1000"></i>
-              </div>
-              <p class="text-slate-300">Enjoy teaching and sharing knowledge</p>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Skills section of the portfolio -->
-      <section id="skill" class="container mx-auto mt-20 pt-20 flex justify-center items-center">
-        <div class="w-3/5 max-sm:w-full max-sm:p-4 pb-10 flex flex-col justify-center items-center space-y-5 z-20">
-          <!-- skill heading -->
-          <div class="space-y-1 text-center">
-            <h1 class="text-5xl max-sm:text-4xl font-bold">Technical Skills</h1>
-            <p class="text-3xl max-sm:text-2xl font-light text-gray-300">
-              My expertise across various technologies and tools
+    <!-- About Section -->
+    <section id="about" class="py-20 sm:py-28">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <p class="text-emerald-400 font-['JetBrains_Mono'] text-sm mb-2">// About Me</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white">Who I Am</h2>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12 items-start">
+          <!-- About Text -->
+          <div class="space-y-6">
+            <p class="text-gray-300 leading-relaxed text-base sm:text-lg">
+              Hello! I'm a Jr Software Engineer at Karooth IT [BD] Ltd., specializing in Java Backend Development. I build scalable enterprise applications using Java, Spring Boot, REST APIs, and microservices architecture.
+            </p>
+            <p class="text-gray-300 leading-relaxed text-base sm:text-lg">
+              My work includes integrating RabbitMQ for asynchronous processing, Elasticsearch for optimized search, and Redis for caching. I've contributed to government and World Bank-funded projects, working with biometric systems (Neurotechnology AFIS), containerized deployments with Docker, and managing databases across PostgreSQL, MySQL, and MSSQL.
+            </p>
+            <p class="text-gray-300 leading-relaxed text-base sm:text-lg">
+              I also bring frontend skills in HTML, CSS, JavaScript, and Tailwind CSS for end-to-end solutions.
             </p>
           </div>
-          <!-- Technology filter buttons -->
-          <div class="bg-[#c33c54] flex flex-wrap max-sm:gap-2 justify-center items-center px-3 py-1 space-x-2 rounded text-lg text-[#fffffa]">
-            <button class="filter-btn px-1 rounded-2xl shadow-[#4b1d3f] shadow-inner bg-[#c33c54] transition duration-200" data-category="languages" >
-              Languages
-            </button>
-            <button class="filter-btn px-1 rounded-2xl transition duration-200" data-category="frontend">
-              Frontend
-            </button>
-            <button class="filter-btn px-1 rounded-2xl transition duration-200" data-category="backend">
-              Backend
-            </button>
-            <button class="filter-btn px-1 rounded-2xl transition duration-200" data-category="database">
-              Databases
-            </button>
-            <button class="filter-btn px-1 rounded-2xl transition duration-200" data-category="tools">
-              Tools
-            </button>
-          </div>
-          <!-- Tech skill showing div -->
-          <div class="bg-[#36213e] w-[60%] max-sm:w-[98%] max-xl:w-full h-30 rounded p-4 text-xl text-white flex flex-wrap flex-col justify-center items-center gap-1 ">
-            <!-- language skills -->
-            <div class="skills languages flex flex-wrap justify-center items-center space-x-2 gap-2" data-category="languages">
-              <span class="skill-name bg-[#554971] px-4 py-px rounded inline-block transition duration-500">C</span>
-              <span class="skill-name bg-[#554971] px-2 py-px rounded inline-block transition duration-500">C++</span>
-              <span class="skill-name bg-[#554971] px-2 py-px rounded inline-block transition duration-500">
-                <i class="fa-brands fa-java text-xl me-2"></i>Java</span>
-              <span class="skill-name bg-[#554971] px-2 py-px rounded inline-block transition duration-500">
-                <i class="fa-brands fa-python text-xl me-2"></i>Python</span>
-            </div>
-            <!-- frontend skills -->
-            <div class="skills frontend flex flex-wrap justify-center items-center space-x-2 gap-2 hidden" data-category="frontend">
-              <span class="skill-name bg-[#554971] px-2 py-px rounded opacity-0 translate-y-2 inline-block transition duration-500">
-                <i class="fa-brands fa-html5 text-xl me-2"></i>HTML</span>
-              <span class="skill-name bg-[#554971] px-2 py-px rounded opacity-0 translate-y-2 inline-block transition duration-500">
-                <i class="fa-brands fa-css3-alt text-xl me-2"></i>CSS</span>
-              <span class="skill-name bg-[#554971] px-2 py-px rounded opacity-0 translate-y-2 inline-block transition duration-500">
-                <i class="fa-brands fa-js text-xl me-2"></i>JavaScrip</span>
-              <span class="skill-name bg-[#554971] px-2 py-px rounded opacity-0 translate-y-2 inline-block transition duration-500">Tailwind CSS</span>
-              <span class="skill-name bg-[#554971] px-2 py-px rounded opacity-0 translate-y-2 inline-block transition duration-500">
-                <i class="fa-brands fa-react text-xl me-2"></i>React</span>
-            </div>
-            <!-- backend skills -->
-            <div class="skills backend flex flex-wrap justify-center items-center space-x-2 gap-2 hidden" data-category="backend">
-              <span class="skill-name bg-[#554971] px-2 py-px rounded opacity-0 translate-y-2 inline-block transition duration-500">
-                <i class="fa-brands fa-java text-xl me-2"></i>Java</span>
-              <span class="skill-name bg-[#554971] px-2 py-px rounded opacity-0 translate-y-2 inline-block transition duration-500">Spring Boot</span>
-            </div>
-            <!-- database skills -->
-            <div class="skills database flex flex-wrap justify-center items-center space-x-2 gap-2 hidden" data-category="database">
-              <span class="skill-name bg-[#554971] px-2 py-px rounded opacity-0 translate-y-2 inline-block transition duration-500">MySQL</span>
-              <span class="skill-name bg-[#554971] px-2 py-px rounded opacity-0 translate-y-2 inline-block transition duration-500">PostgreSQL</span>
-              <span class="skill-name bg-[#554971] px-2 py-px rounded opacity-0 translate-y-2 inline-block transition duration-500">MongoDB</span>
-            </div>
-            <!-- tools skills -->
-            <div class="skills tools flex flex-wrap justify-center items-center space-x-2 gap-2 hidden" data-category="tools">
-              <span class="skill-name bg-[#554971] px-2 py-px rounded opacity-0 translate-y-2 inline-block transition duration-500">
-                <i class="fa-brands fa-git-alt text-xl me-2"></i>Git</span>
-              <span class="skill-name bg-[#554971] px-2 py-px rounded opacity-0 translate-y-2 inline-block transition duration-500">
-                <i class="fa-brands fa-github text-xl me-2"></i>GitHub</span>
-              <span class="skill-name bg-[#554971] px-2 py-px rounded opacity-0 translate-y-2 inline-block transition duration-500">
-                <i class="fa-brands fa-figma text-xl me-2"></i>Figma</span>
-              <span class="skill-name bg-[#554971] px-2 py-px rounded opacity-0 translate-y-2 inline-block transition duration-500">Postman</span>
-              <span class="skill-name bg-[#554971] px-2 py-px rounded opacity-0 translate-y-2 inline-block transition duration-500">Docker</span>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <!-- Project section of the portfolio -->
-      <section id="project" class="container mx-auto space-y-10 pb-20 mt-20 pt-20">
-        <!-- project Heading -->
-        <div class="flex flex-col justify-center items-center gap-3 p-3">
-          <h1 class="text-5xl font-bold z-20">My Projects</h1>
-          <p class="text-3xl max-sm:text-xl text-gray-300 z-20 text-center">
-            Projects that showcase my skills and passion for development
-          </p>
-        </div>
-        <!-- Project cards -->
-        <div class="flex flex-wrap justify-center max-sm:p-3 gap-10 text-gray-200">
-          <!-- My Portfolio Project -->
-          <div class="bg-white/10 backdrop-blur-lg z-20 w-90 h-140 rounded-2xl p-4 flex flex-col space-y-5 translate-y-0 hover:outline hover:shadow-[0_0_15px_rgba(20,184,166,1)] transition duration-400 hover:scale-101 hover:-translate-y-3 group">
-
-            <!-- Project Image -->
-            <div class="h-[50%] rounded-xl overflow-hidden">
-              <img class="object-cover w-full h-full rounded-xl group-hover:scale-106 group-hover:blur-[2px] transition-transform duration-500" src="../assets/images/my-portfolio.png" alt="Tour Ostad"/>
-            </div>
-
-            <!-- Title and brief info -->
-            <div class="h-[25%]">
-              <h1 class="text-3xl font-bold">Portfolio - MD Raihan Shikder</h1>
-              <p class="text-lg text-justify">
-                My portfolio website where you can see my skills, project and others.
-              </p>
-            </div>
-
-            <!-- Live preview -->
-            <div class="h-[25%] flex flex-col gap-5">
-              <!-- technology used -->
-              <div class="flex justify-center items-center space-x-4">
-                <span class="bg-[#006D77] outline px-4 py-2 rounded relative project-links">HTML</span>
-                <span class="bg-[#006D77] outline px-4 py-2 rounded relative project-links">Tailwind</span>
-                <span class="bg-[#006D77] outline px-4 py-2 rounded relative project-links">JavaScript</span>
-              </div>
-              <!-- preview buttons -->
-              <div class="flex justify-around items-center space-x-10 p-1">
-                <a
-                  class="bg-[#006D77] font-bold px-5 py-2 rounded border-2 border-transparent hover:border-white
-                  relative project-links"
-                  href="https://raihanshikder.netlify.app/"
-                  target="_blank"
-                  >Live Preview</a
-                >
-                <a
-                  class="bg-[#006D77] font-bold px-5 py-2 rounded border-2 border-transparent hover:border-white relative project-links"
-                  href="https://github.com/Raihan-89/my-portfolio"
-                  target="_blank"
-                  >GitHub</a
-                >
-              </div>
-            </div>
-          </div>
-
-          <!-- Tour Ostad Project -->
-          <div class="bg-white/10 backdrop-blur-lg z-20 w-90 h-140 rounded-2xl p-4 flex flex-col space-y-5 translate-y-0 hover:outline hover:shadow-[0_0_15px_rgba(20,184,166,1)] transition duration-400 hover:scale-101 hover:-translate-y-3 group">
-
-            <!-- Project Image -->
-            <div class="h-[50%] rounded-xl overflow-hidden">
-              <img class="object-cover w-full h-full rounded-xl group-hover:scale-106 group-hover:blur-[2px] transition-transform duration-500" src="../assets/images/tour-ostad.png" alt="Tour Ostad"/>
-            </div>
-
-            <!-- Title and brief info -->
-            <div class="h-[25%]">
-              <h1 class="text-3xl font-bold">Tour Ostad</h1>
-              <p class="text-lg text-justify">
-                A tour agency website to book tour packages across Bangladesh
-              </p>
-            </div>
-
-            <!-- Live preview -->
-            <div class="h-[25%] flex flex-col gap-5">
-              <!-- technology used -->
-              <div class="flex justify-center items-center space-x-4">
-                <span class="bg-[#006D77] outline px-4 py-2 rounded relative project-links">HTML</span>
-                <span class="bg-[#006D77] outline px-4 py-2 rounded relative project-links">CSS</span>
-                <span class="bg-[#006D77] outline px-4 py-2 rounded relative project-links">JavaScript</span>
-              </div>
-              <!-- preview buttons -->
-              <div class="flex justify-around items-center space-x-10 p-1">
-                <a
-                  class="bg-[#006D77] font-bold px-5 py-2 rounded border-2 border-transparent hover:border-white
-                  relative project-links"
-                  href="https://raihan-89.github.io/Tour-Ostad-Website/"
-                  target="_blank"
-                  >Live Preview</a
-                >
-                <a
-                  class="bg-[#006D77] font-bold px-5 py-2 rounded border-2 border-transparent hover:border-white relative project-links"
-                  href="https://github.com/Raihan-89/Tour-Ostad-Website"
-                  target="_blank"
-                  >GitHub</a
-                >
-              </div>
-            </div>
-          </div>
-
-          <!-- Real Estate Management System Project -->
-          <div class="bg-white/10 backdrop-blur-lg z-20 w-90 h-140 rounded-2xl p-4 flex flex-col space-y-5 translate-y-0 hover:outline hover:shadow-[0_0_15px_rgba(20,184,166,1)] transition duration-500 hover:scale-101 hover:-translate-y-3 group">
-            <!-- Project image or video -->
-            <div class="h-[50%] rounded-xl overflow-hidden">
-              <img id="rems-img" src="/assets/images/real-estate.png" alt="Bechakena Project" class="object-cover h-full w-full rounded-xl group-hover:scale-106 group-hover:blur-[2px] transition-transform duration-500">
-              <video id="rems-video" class="w-full h-full bg-amber-300 object-cover hidden" controls controlsList="nodownload" muted >
-                <source src="/assets/videos/rems_project_video.mp4" type="video/mp4">
-              </video>
-            </div>
-
-            <!-- Title and brief info -->
-            <div class="h-[25%]">
-              <h1 class="text-3xl font-bold">REMS</h1>
-              <p class="text-lg text-justify">
-                REMS - Real Estate Management System is a web application for managing users, properties etc.
-              </p>
-            </div>
-
-            <!-- Preview buttons -->
-            <div class="h-[25%] flex flex-col gap-5">
-              <div class="flex justify-center items-center space-x-4">
-                <span class="bg-[#006D77] outline px-4 py-2 rounded relative project-links">Java</span>
-                <span class="bg-[#006D77] outline px-4 py-2 rounded relative project-links">Spring Boot</span>
-              </div>
-              <div class="flex justify-around items-center space-x-10 p-1">
-                <a id="rems-preview-btn" class="bg-[#006D77] font-bold px-5 py-2 rounded border-2 border-transparent hover:border-white relative project-links" onclick="openVideo('rems')" target="_blank">Video Preview</a>
-                <a id="rems-close-btn" class="bg-[#006D77] font-bold px-5 py-2 rounded border-2 border-transparent hover:border-white relative project-links hidden" onclick="closeVideo('rems')" target="_blank">Close Preview</a>
-                <a class="bg-[#006D77] font-bold px-5 py-2 rounded border-2 border-transparent hover:border-white relative project-links" href="https://github.com/Raihan-89/Real-Estate-Management-System" target="_blank">GitHub</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Bechakena Project -->
-          <div class="bg-white/10 backdrop-blur-lg z-20 w-90 h-140 rounded-2xl p-4 flex flex-col space-y-5 translate-y-0 hover:outline hover:shadow-[0_0_15px_rgba(20,184,166,1)] transition duration-500 hover:scale-101 hover:-translate-y-3 group">
-
-            <!-- Project image or video -->
-            <div class="h-[50%] rounded-xl overflow-hidden">
-              <img id="javaFx-img" src="/assets/images/bechakena-project.png" alt="Bechakena Project" class="object-cover h-full w-full rounded-xl group-hover:scale-106 group-hover:blur-[2px] transition-transform duration-500">
-              <video id="javaFx-video" class="w-full h-full bg-amber-300 object-cover hidden" controls controlsList="nodownload" muted >
-                <source src="/assets/videos/bechakena__javafx_project.mp4" type="video/mp4">
-              </video>
-            </div>
-
-            <!-- Title and brief info -->
-            <div class="h-[25%]">
-              <h1 class="text-3xl font-bold">Bechakena</h1>
-              <p class="text-lg text-justify">
-                A desktop application for managing a shop's inventory and sales.
-              </p>
-            </div>
-
-            <!-- Preview buttons -->
-            <div class="h-[25%] flex flex-col gap-5">
-              <div class="flex justify-center items-center space-x-4">
-                <span class="bg-[#006D77] outline px-4 py-2 rounded relative project-links">Java</span>
-                <span class="bg-[#006D77] outline px-4 py-2 rounded relative project-links">JavaFX</span>
-              </div>
-              <div class="flex justify-around items-center space-x-10 p-1">
-                <a id="javaFx-preview-btn" class="bg-[#006D77] font-bold px-5 py-2 rounded border-2 border-transparent hover:border-white relative project-links" onclick="openVideo('javaFx')" target="_blank">Video Preview</a>
-                <a id="javaFx-close-btn" class="bg-[#006D77] font-bold px-5 py-2 rounded border-2 border-transparent hover:border-white relative project-links hidden" onclick="closeVideo('javaFx')" target="_blank">Close Preview</a>
-                <a class="bg-[#006D77] font-bold px-5 py-2 rounded border-2 border-transparent hover:border-white relative project-links" href="https://github.com/Raihan-89/Java-Bechakena-Project" target="_blank">GitHub</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Car Game Project -->
-          <div class="bg-white/10 backdrop-blur-lg z-20 w-90 h-140 rounded-2xl p-4  flex flex-col space-y-5 translate-y-0  hover:outline hover:shadow-[0_0_15px_rgba(20,184,166,1)] transition duration-500 hover:scale-101 hover:-translate-y-3 group">
-
-            <!-- Project img or video -->
-            <div class="h-[50%] rounded-xl overflow-hidden">
-              <img id="glut-img" class="object-cover h-full w-full rounded-xl group-hover:scale-106 group-hover:blur-[2px] transition-transform duration-500" src="/assets/images/glut_project.png" alt="Car Game">
-              <video id="glut-video" class="w-full h-full bg-amber-300 object-cover hidden" controls controlsList="nodownload" muted >
-                <source src="/assets/videos/glut-video.mp4" type="video/mp4">
-              </video>
-            </div>
-
-            <!-- Title and brief info -->
-            <div class="h-[25%]">
-              <h1 class="text-3xl font-bold">Car Game</h1>
-              <p class="text-lg text-justify">
-                A 2D car racing game where the game ends on collision with another car.
-              </p>
-            </div>
-
-            <!-- Preview button -->
-            <div class="h-[25%] flex flex-col gap-5">
-              <div class="flex justify-center items-center space-x-4">
-                <span class="bg-[#006D77] outline px-4 py-2 rounded relative project-links">C++</span>
-                <span class="bg-[#006D77] outline px-4 py-2 rounded relative project-links">OpenGL</span>
-                <span class="bg-[#006D77] outline px-4 py-2 rounded relative project-links">Glut</span>
-              </div>
-              <div class="flex justify-around items-center space-x-10 p-1">
-                <a id="glut-preview-btn" class="bg-[#006D77] font-bold px-5 py-2 rounded border-2 border-transparent hover:border-white relative project-links" onclick="openVideo('glut')" target="_blank">Video Preview</a>
-                <a id="glut-close-btn" class="bg-[#006D77] font-bold px-5 py-2 rounded border-2 border-transparent hover:border-white relative project-links hidden" onclick="closeVideo('glut')" target="_blank">Close Preview</a>
-                <a class="bg-[#006D77] font-bold px-5 py-2 rounded border-2 border-transparent hover:border-white relative project-links" href="https://github.com/Raihan-89/Computer-Graphics-Glut-Project" target="_blank">GitHub</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Education section of the portfolio -->
-      <section id="education" class="container mx-auto space-y-10 pb-20 mt-20 pt-20 max-sm:p-3">
-        <!-- Education headings -->
-        <div class="info flex flex-col items-center justify-center">
-          <h1 class="text-5xl font-bold z-20">Education</h1>
-          <p class="text-3xl max-sm:text-xl max-sm:text-center text-gray-300 z-20">
-            My Education journey to be an Engineer
-          </p>
-        </div>
-        <!-- cards -->
-        <div class="w-full relative text-xl z-20">
-          <div class="absolute left-1/2 h-full bg-[#006D77] size-1 max-sm:hidden"></div>
-          <div class="h-full flex flex-col max-sm:justify-center items-center gap-20 max-sm:gap-10">
-            <div class="relative sm:left-[17.5%] lg:left-[24%] xl:left-[17.5%] w-[35%] max-sm:w-full max-xl:w-[48%] flex items-center sm:ml-2">
-              <div class="max-sm:hidden w-20 bg-[#8f2d56] h-1"></div>
-              <div class="bg-[#004346] text-white p-6 max-sm:p-3 rounded-lg space-y-2 transition duration-300 hover:scale-105 shadow-lg hover:shadow-[#8f2d56]">
-                <div class="w-full flex items-center gap-2">
-                  <div class="bg-[#8f2d56] p-3 rounded-md">
-                    <i
-                      class="fas fa-graduation-cap text-white text-xl hover:rotate-360 duration-1000"
-                    ></i>
-                  </div>
-                  <h1>BSc in Compueter Science and Engineering</h1>
+          <!-- Quick Info Cards -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="bg-[#111111] border border-gray-800 rounded-xl p-5 hover:border-emerald-500/50 transition-all duration-300">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-briefcase text-emerald-400"></i>
                 </div>
-                <h1>Southeast University</h1>
-                <p>2021-2025</p>
-                <p>
-                  Completed Computer Science and Engineering with focus on
-                  Software Engineer and Programmer.
-                </p>
+                <h3 class="text-white font-semibold">Current Role</h3>
+              </div>
+              <p class="text-gray-400 text-sm">Jr Software Engineer at Karooth IT [BD] Ltd.</p>
+            </div>
+
+            <div class="bg-[#111111] border border-gray-800 rounded-xl p-5 hover:border-emerald-500/50 transition-all duration-300">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-code text-emerald-400"></i>
+                </div>
+                <h3 class="text-white font-semibold">Specialization</h3>
+              </div>
+              <p class="text-gray-400 text-sm">Java, Spring Boot & Microservices</p>
+            </div>
+
+            <div class="bg-[#111111] border border-gray-800 rounded-xl p-5 hover:border-emerald-500/50 transition-all duration-300">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-server text-emerald-400"></i>
+                </div>
+                <h3 class="text-white font-semibold">Tech Stack</h3>
+              </div>
+              <p class="text-gray-400 text-sm">RabbitMQ, Redis, Elasticsearch & Docker</p>
+            </div>
+
+            <div class="bg-[#111111] border border-gray-800 rounded-xl p-5 hover:border-emerald-500/50 transition-all duration-300">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-graduation-cap text-emerald-400"></i>
+                </div>
+                <h3 class="text-white font-semibold">Education</h3>
+              </div>
+              <p class="text-gray-400 text-sm">BSc in CSE from Southeast University</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 sm:py-28 bg-[#0f0f0f]">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <p class="text-emerald-400 font-['JetBrains_Mono'] text-sm mb-2">// Experience</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white">Work History</h2>
+        </div>
+
+        <div class="relative">
+          <!-- Timeline Line -->
+          <div class="absolute left-0 sm:left-1/2 top-0 bottom-0 w-px bg-gray-800 transform sm:-translate-x-1/2"></div>
+
+          <!-- Experience Card -->
+          <div class="relative pl-8 sm:pl-0">
+            <div class="sm:flex sm:items-start">
+              <!-- Timeline Dot -->
+              <div class="absolute left-0 sm:left-1/2 w-4 h-4 bg-emerald-500 rounded-full transform -translate-x-2 sm:-translate-x-2 mt-1 border-4 border-[#0a0a0a] z-10"></div>
+
+              <!-- Content -->
+              <div class="sm:w-1/2 sm:pr-12 sm:text-right">
+                <div class="bg-[#111111] border border-gray-800 rounded-xl p-6 hover:border-emerald-500/30 transition-all duration-300">
+                  <div class="flex items-center gap-3 sm:justify-end mb-3">
+                    <span class="text-xs font-['JetBrains_Mono'] text-emerald-400 bg-emerald-400/10 px-2 py-1 rounded">Sept 2025 - Present</span>
+                  </div>
+                  <h3 class="text-xl font-bold text-white mb-1">Jr Software Engineer (Java)</h3>
+                  <p class="text-emerald-400 font-medium mb-1">Karooth IT [BD] Ltd.</p>
+                  <p class="text-gray-500 text-sm mb-4">Dhaka, Bangladesh</p>
+                  <ul class="space-y-2 text-sm text-gray-400 text-left">
+                    <li class="flex items-start gap-2">
+                      <i class="fas fa-chevron-right text-emerald-400 mt-1 text-xs flex-shrink-0"></i>
+                      <span>Developed backend services using Java, Spring Boot for scalable enterprise applications.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <i class="fas fa-chevron-right text-emerald-400 mt-1 text-xs flex-shrink-0"></i>
+                      <span>Worked on GRS (Government Project) to build complaint management and resolution workflows.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <i class="fas fa-chevron-right text-emerald-400 mt-1 text-xs flex-shrink-0"></i>
+                      <span>Contributed to SNSOP (World Bank funded project) for social safety net operations.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <i class="fas fa-chevron-right text-emerald-400 mt-1 text-xs flex-shrink-0"></i>
+                      <span>Integrated Neurotechnology AFIS for biometric fingerprint identification and verification.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <i class="fas fa-chevron-right text-emerald-400 mt-1 text-xs flex-shrink-0"></i>
+                      <span>Designed REST APIs and implemented asynchronous processing using RabbitMQ.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <i class="fas fa-chevron-right text-emerald-400 mt-1 text-xs flex-shrink-0"></i>
+                      <span>Optimized data search using Elasticsearch and improved performance with Redis caching.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <i class="fas fa-chevron-right text-emerald-400 mt-1 text-xs flex-shrink-0"></i>
+                      <span>Managed storage using MinIO and containerized applications with Docker.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <i class="fas fa-chevron-right text-emerald-400 mt-1 text-xs flex-shrink-0"></i>
+                      <span>Optimized database queries across PostgreSQL, MySQL, MSSQL.</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Spacer for other side -->
+              <div class="hidden sm:block sm:w-1/2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 sm:py-28">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <p class="text-emerald-400 font-['JetBrains_Mono'] text-sm mb-2">// Skills</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white">Tech Stack</h2>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap justify-center gap-2 mb-8">
+          <button class="filter-btn active px-4 py-2 text-sm font-medium rounded-lg border border-gray-700 text-gray-300 hover:border-emerald-500 hover:text-emerald-400 transition-all" data-category="all">All</button>
+          <button class="filter-btn px-4 py-2 text-sm font-medium rounded-lg border border-gray-700 text-gray-300 hover:border-emerald-500 hover:text-emerald-400 transition-all" data-category="languages">Languages</button>
+          <button class="filter-btn px-4 py-2 text-sm font-medium rounded-lg border border-gray-700 text-gray-300 hover:border-emerald-500 hover:text-emerald-400 transition-all" data-category="backend">Backend</button>
+          <button class="filter-btn px-4 py-2 text-sm font-medium rounded-lg border border-gray-700 text-gray-300 hover:border-emerald-500 hover:text-emerald-400 transition-all" data-category="messaging">Messaging</button>
+          <button class="filter-btn px-4 py-2 text-sm font-medium rounded-lg border border-gray-700 text-gray-300 hover:border-emerald-500 hover:text-emerald-400 transition-all" data-category="database">Databases</button>
+          <button class="filter-btn px-4 py-2 text-sm font-medium rounded-lg border border-gray-700 text-gray-300 hover:border-emerald-500 hover:text-emerald-400 transition-all" data-category="devops">DevOps</button>
+          <button class="filter-btn px-4 py-2 text-sm font-medium rounded-lg border border-gray-700 text-gray-300 hover:border-emerald-500 hover:text-emerald-400 transition-all" data-category="tools">Tools</button>
+        </div>
+
+        <!-- Skills Grid -->
+        <div id="skills-container" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+          <!-- Languages -->
+          <div class="skill-item flex items-center gap-3 bg-[#111111] border border-gray-800 rounded-lg p-4 hover:border-emerald-500/50 transition-all duration-300" data-category="languages">
+            <i class="fab fa-java text-xl text-emerald-400"></i>
+            <span class="text-gray-300 font-medium">Java</span>
+          </div>
+          <div class="skill-item flex items-center gap-3 bg-[#111111] border border-gray-800 rounded-lg p-4 hover:border-emerald-500/50 transition-all duration-300" data-category="languages">
+            <span class="text-emerald-400 font-['JetBrains_Mono'] font-bold">C</span>
+            <span class="text-gray-300 font-medium">C</span>
+          </div>
+          <div class="skill-item flex items-center gap-3 bg-[#111111] border border-gray-800 rounded-lg p-4 hover:border-emerald-500/50 transition-all duration-300" data-category="languages">
+            <span class="text-emerald-400 font-['JetBrains_Mono'] font-bold">C++</span>
+            <span class="text-gray-300 font-medium">C++</span>
+          </div>
+          <div class="skill-item flex items-center gap-3 bg-[#111111] border border-gray-800 rounded-lg p-4 hover:border-emerald-500/50 transition-all duration-300" data-category="languages">
+            <i class="fab fa-js text-xl text-emerald-400"></i>
+            <span class="text-gray-300 font-medium">JavaScript</span>
+          </div>
+
+          <!-- Backend -->
+          <div class="skill-item flex items-center gap-3 bg-[#111111] border border-gray-800 rounded-lg p-4 hover:border-emerald-500/50 transition-all duration-300" data-category="backend">
+            <i class="fab fa-java text-xl text-emerald-400"></i>
+            <span class="text-gray-300 font-medium">Java</span>
+          </div>
+          <div class="skill-item flex items-center gap-3 bg-[#111111] border border-gray-800 rounded-lg p-4 hover:border-emerald-500/50 transition-all duration-300" data-category="backend">
+            <i class="fas fa-leaf text-xl text-emerald-400"></i>
+            <span class="text-gray-300 font-medium">Spring Boot</span>
+          </div>
+          <div class="skill-item flex items-center gap-3 bg-[#111111] border border-gray-800 rounded-lg p-4 hover:border-emerald-500/50 transition-all duration-300" data-category="backend">
+            <i class="fas fa-plug text-xl text-emerald-400"></i>
+            <span class="text-gray-300 font-medium">REST API</span>
+          </div>
+          <div class="skill-item flex items-center gap-3 bg-[#111111] border border-gray-800 rounded-lg p-4 hover:border-emerald-500/50 transition-all duration-300" data-category="backend">
+            <i class="fas fa-shield-alt text-xl text-emerald-400"></i>
+            <span class="text-gray-300 font-medium">Spring Security</span>
+          </div>
+
+          <!-- Messaging -->
+          <div class="skill-item flex items-center gap-3 bg-[#111111] border border-gray-800 rounded-lg p-4 hover:border-emerald-500/50 transition-all duration-300" data-category="messaging">
+            <i class="fas fa-rabbit text-xl text-emerald-400"></i>
+            <span class="text-gray-300 font-medium">RabbitMQ</span>
+          </div>
+          <div class="skill-item flex items-center gap-3 bg-[#111111] border border-gray-800 rounded-lg p-4 hover:border-emerald-500/50 transition-all duration-300" data-category="messaging">
+            <i class="fas fa-search text-xl text-emerald-400"></i>
+            <span class="text-gray-300 font-medium">Elasticsearch</span>
+          </div>
+          <div class="skill-item flex items-center gap-3 bg-[#111111] border border-gray-800 rounded-lg p-4 hover:border-emerald-500/50 transition-all duration-300" data-category="messaging">
+            <i class="fas fa-database text-xl text-emerald-400"></i>
+            <span class="text-gray-300 font-medium">Redis</span>
+          </div>
+          <div class="skill-item flex items-center gap-3 bg-[#111111] border border-gray-800 rounded-lg p-4 hover:border-emerald-500/50 transition-all duration-300" data-category="messaging">
+            <i class="fas fa-bucket text-xl text-emerald-400"></i>
+            <span class="text-gray-300 font-medium">MinIO</span>
+          </div>
+
+          <!-- Databases -->
+          <div class="skill-item flex items-center gap-3 bg-[#111111] border border-gray-800 rounded-lg p-4 hover:border-emerald-500/50 transition-all duration-300" data-category="database">
+            <i class="fas fa-database text-xl text-emerald-400"></i>
+            <span class="text-gray-300 font-medium">MySQL</span>
+          </div>
+          <div class="skill-item flex items-center gap-3 bg-[#111111] border border-gray-800 rounded-lg p-4 hover:border-emerald-500/50 transition-all duration-300" data-category="database">
+            <i class="fas fa-database text-xl text-emerald-400"></i>
+            <span class="text-gray-300 font-medium">PostgreSQL</span>
+          </div>
+          <div class="skill-item flex items-center gap-3 bg-[#111111] border border-gray-800 rounded-lg p-4 hover:border-emerald-500/50 transition-all duration-300" data-category="database">
+            <i class="fas fa-database text-xl text-emerald-400"></i>
+            <span class="text-gray-300 font-medium">MSSQL</span>
+          </div>
+          <div class="skill-item flex items-center gap-3 bg-[#111111] border border-gray-800 rounded-lg p-4 hover:border-emerald-500/50 transition-all duration-300" data-category="database">
+            <i class="fas fa-leaf text-xl text-emerald-400"></i>
+            <span class="text-gray-300 font-medium">MongoDB</span>
+          </div>
+
+          <!-- DevOps -->
+          <div class="skill-item flex items-center gap-3 bg-[#111111] border border-gray-800 rounded-lg p-4 hover:border-emerald-500/50 transition-all duration-300" data-category="devops">
+            <i class="fab fa-docker text-xl text-emerald-400"></i>
+            <span class="text-gray-300 font-medium">Docker</span>
+          </div>
+          <div class="skill-item flex items-center gap-3 bg-[#111111] border border-gray-800 rounded-lg p-4 hover:border-emerald-500/50 transition-all duration-300" data-category="devops">
+            <i class="fas fa-cubes text-xl text-emerald-400"></i>
+            <span class="text-gray-300 font-medium">Docker Compose</span>
+          </div>
+          <div class="skill-item flex items-center gap-3 bg-[#111111] border border-gray-800 rounded-lg p-4 hover:border-emerald-500/50 transition-all duration-300" data-category="devops">
+            <i class="fas fa-project-diagram text-xl text-emerald-400"></i>
+            <span class="text-gray-300 font-medium">Microservices</span>
+          </div>
+
+          <!-- Tools -->
+          <div class="skill-item flex items-center gap-3 bg-[#111111] border border-gray-800 rounded-lg p-4 hover:border-emerald-500/50 transition-all duration-300" data-category="tools">
+            <i class="fab fa-git-alt text-xl text-emerald-400"></i>
+            <span class="text-gray-300 font-medium">Git</span>
+          </div>
+          <div class="skill-item flex items-center gap-3 bg-[#111111] border border-gray-800 rounded-lg p-4 hover:border-emerald-500/50 transition-all duration-300" data-category="tools">
+            <i class="fab fa-github text-xl text-emerald-400"></i>
+            <span class="text-gray-300 font-medium">GitHub</span>
+          </div>
+          <div class="skill-item flex items-center gap-3 bg-[#111111] border border-gray-800 rounded-lg p-4 hover:border-emerald-500/50 transition-all duration-300" data-category="tools">
+            <i class="fas fa-paper-plane text-xl text-emerald-400"></i>
+            <span class="text-gray-300 font-medium">Postman</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 sm:py-28 bg-[#0f0f0f]">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <p class="text-emerald-400 font-['JetBrains_Mono'] text-sm mb-2">// Projects</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white">Featured Work</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <!-- ForgeWatch -->
+          <div class="bg-[#111111] border border-gray-800 rounded-xl overflow-hidden hover:border-emerald-500/30 transition-all duration-300 group">
+            <div class="h-48 bg-gradient-to-br from-emerald-900/40 to-cyan-900/40 flex items-center justify-center relative">
+              <div class="text-center">
+                <i class="fas fa-industry text-5xl text-emerald-400 mb-3"></i>
+                <h3 class="text-2xl font-bold text-white">ForgeWatch</h3>
+                <p class="text-gray-400 text-sm">Microservices System</p>
+              </div>
+              <span class="absolute top-3 right-3 bg-emerald-500/20 text-emerald-400 text-xs font-['JetBrains_Mono'] px-2 py-1 rounded">2026</span>
+            </div>
+            <div class="p-5">
+              <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+                A microservices-based factory monitoring system with event-driven architecture using Spring Boot and API Gateway. Built secure auth with JWT, integrated Redis for token management, and containerized with Docker Compose.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-xs rounded font-['JetBrains_Mono']">Java</span>
+                <span class="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-xs rounded font-['JetBrains_Mono']">Spring Boot</span>
+                <span class="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-xs rounded font-['JetBrains_Mono']">RabbitMQ</span>
+                <span class="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-xs rounded font-['JetBrains_Mono']">Redis</span>
+                <span class="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-xs rounded font-['JetBrains_Mono']">Docker</span>
+              </div>
+              <a href="https://github.com/Raihan-89" target="_blank" class="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 text-sm font-medium transition">
+                <i class="fab fa-github"></i>View on GitHub
+              </a>
+            </div>
+          </div>
+
+          <!-- REMS -->
+          <div class="bg-[#111111] border border-gray-800 rounded-xl overflow-hidden hover:border-emerald-500/30 transition-all duration-300 group">
+            <div class="h-48 bg-gradient-to-br from-blue-900/40 to-purple-900/40 flex items-center justify-center relative">
+              <img id="rems-img" src="assets/images/real-estate.png" alt="REMS" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <video id="rems-video" class="w-full h-full object-cover hidden" controls controlsList="nodownload" muted>
+                <source src="assets/videos/rems_project_video.mp4" type="video/mp4">
+              </video>
+              <span class="absolute top-3 right-3 bg-emerald-500/20 text-emerald-400 text-xs font-['JetBrains_Mono'] px-2 py-1 rounded">Jan 2025</span>
+            </div>
+            <div class="p-5">
+              <h3 class="text-xl font-bold text-white mb-2">REMS - Real Estate Management System</h3>
+              <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+                Full-stack web application with role-based access control for Admin and Users. Property listing, management, and admin moderation features including approval, editing, and deletion.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-xs rounded font-['JetBrains_Mono']">Java</span>
+                <span class="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-xs rounded font-['JetBrains_Mono']">Spring Boot</span>
+                <span class="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-xs rounded font-['JetBrains_Mono']">MongoDB</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <button onclick="openVideo('rems')" class="rems-preview inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 text-sm font-medium transition">
+                  <i class="fas fa-play"></i>Video Preview
+                </button>
+                <button onclick="closeVideo('rems')" class="rems-close hidden inline-flex items-center gap-2 text-red-400 hover:text-red-300 text-sm font-medium transition">
+                  <i class="fas fa-times"></i>Close
+                </button>
+                <a href="https://github.com/Raihan-89/Real-Estate-Management-System" target="_blank" class="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 text-sm font-medium transition">
+                  <i class="fab fa-github"></i>GitHub
+                </a>
               </div>
             </div>
-            <div class="relative sm:right-[17.5%] lg:right-[24%] xl:right-[17.5%] w-[35%] max-sm:w-full max-xl:w-[48%] flex flex-row-reverse items-center">
-              <div class="max-sm:hidden w-13 bg-[#004346] h-1"></div>
-              <div class="bg-[#8f2d56] text-white p-6 max-sm:p-3 rounded-lg space-y-2 transition duration-300 hover:scale-105 shadow-md hover:shadow-teal-500">
-                <div class="w-full flex items-center gap-2">
-                  <div class="bg-[#004346] p-3 rounded-md">
-                    <i
-                      class="fas fa-graduation-cap text-white text-xl hover:rotate-360 duration-1000"
-                    ></i>
-                  </div>
-                  <h1>HSC in Science</h1>
-                </div>
-                <h1>Govt. Science College</h1>
-                <p>2018-2020</p>
-                <p>Completed Higher Secondary School Certificate with GPA-5.00</p>
+          </div>
+
+          <!-- Portfolio -->
+          <div class="bg-[#111111] border border-gray-800 rounded-xl overflow-hidden hover:border-emerald-500/30 transition-all duration-300 group">
+            <div class="h-48 bg-gradient-to-br from-gray-800/40 to-gray-900/40 flex items-center justify-center relative">
+              <img src="assets/images/my-portfolio.png" alt="Portfolio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <span class="absolute top-3 right-3 bg-emerald-500/20 text-emerald-400 text-xs font-['JetBrains_Mono'] px-2 py-1 rounded">Aug 2025</span>
+            </div>
+            <div class="p-5">
+              <h3 class="text-xl font-bold text-white mb-2">Portfolio - MD Raihan Shikder</h3>
+              <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+                Responsive personal portfolio with smooth scrolling, animated sections, and interactive project previews. Integrated Netlify-based contact form.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-xs rounded font-['JetBrains_Mono']">HTML</span>
+                <span class="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-xs rounded font-['JetBrains_Mono']">Tailwind</span>
+                <span class="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-xs rounded font-['JetBrains_Mono']">JavaScript</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <a href="https://raihanshikder.netlify.app/" target="_blank" class="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 text-sm font-medium transition">
+                  <i class="fas fa-external-link-alt"></i>Live Demo
+                </a>
+                <a href="https://github.com/Raihan-89/my-portfolio" target="_blank" class="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 text-sm font-medium transition">
+                  <i class="fab fa-github"></i>GitHub
+                </a>
               </div>
             </div>
-            <div class="relative sm:left-[17.5%] lg:left-[24%] xl:left-[17.5%] w-[35%] max-sm:w-full max-xl:w-[48%] flex items-center sm:ml-2">
-              <div class="max-sm:hidden w-14 bg-[#8f2d56] h-1"></div>
-              <div class="bg-[#004346] text-white p-6 max-sm:p-3 rounded-lg space-y-2 transition duration-300 hover:scale-105 shadow-lg hover:shadow-[#8f2d56]">
-                <div class="w-full flex items-center gap-2">
-                  <div class="bg-[#8f2d56] p-3 rounded-md">
-                    <i
-                      class="fas fa-graduation-cap text-white text-xl hover:rotate-360 duration-1000"
-                    ></i>
-                  </div>
-                  <h1>SSC in Science</h1>
-                </div>
-                <h1>Khilgaon Govt. High School</h1>
-                <p>2017-2018</p>
-                <p>Completed Secondary School Certificate in with GPA-5.00</p>
+          </div>
+
+          <!-- Tour Ostad -->
+          <div class="bg-[#111111] border border-gray-800 rounded-xl overflow-hidden hover:border-emerald-500/30 transition-all duration-300 group">
+            <div class="h-48 bg-gradient-to-br from-orange-900/40 to-red-900/40 flex items-center justify-center relative">
+              <img src="assets/images/tour-ostad.png" alt="Tour Ostad" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <span class="absolute top-3 right-3 bg-emerald-500/20 text-emerald-400 text-xs font-['JetBrains_Mono'] px-2 py-1 rounded">May 2025</span>
+            </div>
+            <div class="p-5">
+              <h3 class="text-xl font-bold text-white mb-2">Tour Ostad</h3>
+              <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+                Responsive tour agency website showcasing tour packages across Bangladesh. Designed user-friendly UI components optimized for all devices.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-xs rounded font-['JetBrains_Mono']">HTML</span>
+                <span class="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-xs rounded font-['JetBrains_Mono']">CSS</span>
+                <span class="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-xs rounded font-['JetBrains_Mono']">JavaScript</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <a href="https://raihan-89.github.io/Tour-Ostad-Website/" target="_blank" class="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 text-sm font-medium transition">
+                  <i class="fas fa-external-link-alt"></i>Live Demo
+                </a>
+                <a href="https://github.com/Raihan-89/Tour-Ostad-Website" target="_blank" class="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 text-sm font-medium transition">
+                  <i class="fab fa-github"></i>GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bechakena -->
+          <div class="bg-[#111111] border border-gray-800 rounded-xl overflow-hidden hover:border-emerald-500/30 transition-all duration-300 group">
+            <div class="h-48 bg-gradient-to-br from-yellow-900/40 to-amber-900/40 flex items-center justify-center relative">
+              <img id="javafx-img" src="assets/images/bechakena-project.png" alt="Bechakena" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <video id="javafx-video" class="w-full h-full object-cover hidden" controls controlsList="nodownload" muted>
+                <source src="assets/videos/bechakena__javafx_project.mp4" type="video/mp4">
+              </video>
+              <span class="absolute top-3 right-3 bg-emerald-500/20 text-emerald-400 text-xs font-['JetBrains_Mono'] px-2 py-1 rounded">Jul 2023</span>
+            </div>
+            <div class="p-5">
+              <h3 class="text-xl font-bold text-white mb-2">Bechakena</h3>
+              <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+                Desktop-based e-commerce platform supporting buyer and seller accounts with product listing, browsing, and purchasing features.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-xs rounded font-['JetBrains_Mono']">Java</span>
+                <span class="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-xs rounded font-['JetBrains_Mono']">JavaFX</span>
+                <span class="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-xs rounded font-['JetBrains_Mono']">MySQL</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <button onclick="openVideo('javafx')" class="javafx-preview inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 text-sm font-medium transition">
+                  <i class="fas fa-play"></i>Video Preview
+                </button>
+                <button onclick="closeVideo('javafx')" class="javafx-close hidden inline-flex items-center gap-2 text-red-400 hover:text-red-300 text-sm font-medium transition">
+                  <i class="fas fa-times"></i>Close
+                </button>
+                <a href="https://github.com/Raihan-89/Java-Bechakena-Project" target="_blank" class="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 text-sm font-medium transition">
+                  <i class="fab fa-github"></i>GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Car Game -->
+          <div class="bg-[#111111] border border-gray-800 rounded-xl overflow-hidden hover:border-emerald-500/30 transition-all duration-300 group">
+            <div class="h-48 bg-gradient-to-br from-red-900/40 to-pink-900/40 flex items-center justify-center relative">
+              <img id="glut-img" src="assets/images/glut_project.png" alt="Car Game" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <video id="glut-video" class="w-full h-full object-cover hidden" controls controlsList="nodownload" muted>
+                <source src="assets/videos/glut-video.mp4" type="video/mp4">
+              </video>
+              <span class="absolute top-3 right-3 bg-emerald-500/20 text-emerald-400 text-xs font-['JetBrains_Mono'] px-2 py-1 rounded">2023</span>
+            </div>
+            <div class="p-5">
+              <h3 class="text-xl font-bold text-white mb-2">Car Game</h3>
+              <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+                A 2D car racing game where the game ends on collision with another car. Built with OpenGL and GLUT graphics library.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-xs rounded font-['JetBrains_Mono']">C++</span>
+                <span class="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-xs rounded font-['JetBrains_Mono']">OpenGL</span>
+                <span class="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-xs rounded font-['JetBrains_Mono']">GLUT</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <button onclick="openVideo('glut')" class="glut-preview inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 text-sm font-medium transition">
+                  <i class="fas fa-play"></i>Video Preview
+                </button>
+                <button onclick="closeVideo('glut')" class="glut-close hidden inline-flex items-center gap-2 text-red-400 hover:text-red-300 text-sm font-medium transition">
+                  <i class="fas fa-times"></i>Close
+                </button>
+                <a href="https://github.com/Raihan-89/Computer-Graphics-Glut-Project" target="_blank" class="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 text-sm font-medium transition">
+                  <i class="fab fa-github"></i>GitHub
+                </a>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Contact section of the portfolio -->
-      <section id="contact" class="container mx-auto pb-20 mb-20 mt-20 pt-20 ">
-        <!-- heading -->
-        <div class="relative z-20">
-          <h1 class="text-5xl max-sm:text-4xl text-center font-bold underline">Get in touch</h1>
+    <!-- Education Section -->
+    <section id="education" class="py-20 sm:py-28">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <p class="text-emerald-400 font-['JetBrains_Mono'] text-sm mb-2">// Education</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white">Academic Background</h2>
         </div>
-        <div class="w-full flex max-sm:flex-col max-sm:items-center justify-center max-xl:justify-between gap-20 pt-10 h-full">
-          <!-- Contact info -->
-          <div class="space-y-5 p-5 w-2/5 max-xl:w-[45%] max-sm:w-full rounded-lg z-20">
-            <p class="text-justify text-2xl max-sm:text-xl">
-              I'm always excited to connect with new people and discuss
-              interesting opportunites. Feel free to reach out through any of
-              these:
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <!-- BSc -->
+          <div class="bg-[#111111] border border-gray-800 rounded-xl p-6 hover:border-emerald-500/50 transition-all duration-300">
+            <div class="w-12 h-12 bg-emerald-500/10 rounded-lg flex items-center justify-center mb-4">
+              <i class="fas fa-graduation-cap text-emerald-400 text-xl"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-1">BSc in Computer Science and Engineering</h3>
+            <p class="text-emerald-400 font-medium text-sm mb-1">Southeast University</p>
+            <p class="text-gray-500 text-sm font-['JetBrains_Mono'] mb-3">2021 - 2025</p>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              Completed Computer Science and Engineering with focus on Software Engineering and Programming.
             </p>
-            <!-- Contact info -->
-            <div class="space-y-5">
-              <div class="bg-[#522546] backdrop-blur-lg outline group p-3 max-sm:p-1 rounded-lg text-xl transition-all hover:translate-x-2  max-sm:active:-translate-y-2 duration-300 flex items-center gap-5 max-sm:gap-1">
-                <div class="size-13 max-sm:size-9 flex justify-center items-center bg-[#36213e] rounded-full">
-                  <i class="fa fa-envelope text-4xl max-sm:text-2xl"></i>
-                </div>
-                <div class="">
-                  <h1 class="text-2xl font-bold">Email</h1>
-                  <p class="text-gray-400 group-hover:text-gray-200 max-sm:text-gray-200 transition-colors duration-300 max-sm:text-lg">
-                    raihan.shikder84@gmail.com
-                  </p>
-                </div>
-              </div>
-              <div class="bg-[#522546] backdrop-blur-lg outline group p-3 max-sm:p-1 rounded-lg text-xl transition-all hover:translate-x-2
-              max-sm:active:-translate-y-2 duration-300 flex items-center gap-5 max-sm:gap-1">
-                <div class="size-13 max-sm:size-9 flex justify-center items-center bg-[#36213e] rounded-full">
-                  <i class="fa fa-phone text-4xl max-sm:text-2xl"></i>
-                </div>
-                <div class="">
-                  <h1 class="text-2xl font-bold">Phone</h1>
-                  <p class="text-gray-400 group-hover:text-gray-200 max-sm:text-gray-200 transition-colors duration-300 max-sm:text-lg">
-                    01580841980
-                  </p>
-                </div>
-              </div>
-              <div class="bg-[#522546] backdrop-blur-lg outline group p-3 max-sm:p-1 rounded-lg text-xl transition-all hover:translate-x-2
-              max-sm:active:-translate-y-2 duration-300 flex items-center gap-5 max-sm:gap-1">
-                <div class="size-13 max-sm:size-9 flex justify-center items-center bg-[#36213e] rounded-full">
-                  <i class="fa fa-map-marker text-4xl max-sm:text-2xl"></i>
-                </div>
-                <div class="">
-                  <h1 class="text-2xl font-bold">Location</h1>
-                  <p class="text-gray-400 group-hover:text-gray-200 max-sm:text-gray-200 transition-colors duration-300 max-sm:text-lg">
-                    Dhaka, Bangladesh
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
-          <!-- Contact form -->
-          <div class="bg-[#522546] backdrop-blur-lg z-20 border space-y-5 p-5 lg:pb-25 w-1/3 max-sm:w-[95%] max-xl:w-[50%] rounded-lg text-xl">
-            <div class="h-full px-5 ">
-              <form name="contact" method="post" netlify class="space-y-3 h-full text-gray-100">
-                <div class="flex flex-col gap-2">
-                  <label class="font-bold self-start" for="name">Name</label>
-                  <input name="name" id="name" type="text" class="bg-[#36213e] p-2 rounded border-2 border-[#8ac6d0] focus:outline-none focus:ring-2 focus:ring-[#b8f3ff] focus:border-transparent transition-all duration-200"
-                  placeholder="Enter your name" required/>
-                </div>
-                <div class="flex flex-col gap-2">
-                  <label class="font-bold self-start" for="email">Email</label>
-                  <input name="email" id="email" type="text" class="bg-[#36213e] p-2 rounded border-2 border-[#8ac6d0] focus:outline-none focus:ring-2 focus:ring-[#b8f3ff] focus:border-transparent transition-all duration-200"
-                  placeholder="email@example.com" required/>
-                </div>
-                <div class="flex flex-col gap-2 h-1/2">
-                  <label class="font-bold self-start" for="message">Message</label>
-                  <textarea name="message" id="message" class="bg-[#36213e] h-full p-2 rounded border-2 border-[#8ac6d0] focus:outline-none focus:ring-2 focus:ring-[#b8f3ff] focus:border-transparent transition-all duration-200"
-                  placeholder="Write your message here..." required></textarea>
-                </div>
-                <input type="submit" value="Submit" class="w-full bg-[#36213e] border-2 border-[#8ac6d0] hover:scale-102 hover:bg-[#482c53] transition-all duration-200 p-3 rounded"/>
-              </form>
+
+          <!-- HSC -->
+          <div class="bg-[#111111] border border-gray-800 rounded-xl p-6 hover:border-emerald-500/50 transition-all duration-300">
+            <div class="w-12 h-12 bg-emerald-500/10 rounded-lg flex items-center justify-center mb-4">
+              <i class="fas fa-graduation-cap text-emerald-400 text-xl"></i>
             </div>
+            <h3 class="text-lg font-bold text-white mb-1">HSC in Science</h3>
+            <p class="text-emerald-400 font-medium text-sm mb-1">Govt. Science College</p>
+            <p class="text-gray-500 text-sm font-['JetBrains_Mono'] mb-3">2018 - 2020</p>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              Completed Higher Secondary School Certificate with GPA-5.00
+            </p>
+          </div>
+
+          <!-- SSC -->
+          <div class="bg-[#111111] border border-gray-800 rounded-xl p-6 hover:border-emerald-500/50 transition-all duration-300">
+            <div class="w-12 h-12 bg-emerald-500/10 rounded-lg flex items-center justify-center mb-4">
+              <i class="fas fa-graduation-cap text-emerald-400 text-xl"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-1">SSC in Science</h3>
+            <p class="text-emerald-400 font-medium text-sm mb-1">Khilgaon Govt. High School</p>
+            <p class="text-gray-500 text-sm font-['JetBrains_Mono'] mb-3">2017 - 2018</p>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              Completed Secondary School Certificate with GPA-5.00
+            </p>
           </div>
         </div>
-      </section>
-    </main>
-    
-    <!-- Footer of the portfolio -->
-    <footer class="relative bottom-0 z-30">
-      <div class="bg-cyan-900 backdrop-blur-lg w-full h-full pt-10 pb-3 flex flex-col justify-center items-center space-y-2 text-gray-100 text-lg max-sm:text-sm">
-        <div class="container flex max-sm:flex-col max-xl:w-full max-sm:gap-5 max-sm:items-center justify-between">
-          <!-- My info -->
-          <div class="w-1/4 max-sm:w-[95%] max-xl:w-[35%]">
-            <h1 class="text-2xl font-medium">Md. Raihan Shikder</h1>
-            <p class="text-justify max-sm:text-lg">Backend Developer (Java & Spring Boot), also have expertise in
-              Frontend Development.<br>Dhaka, Bangladesh</p>
+      </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-20 sm:py-28 bg-[#0f0f0f]">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <p class="text-emerald-400 font-['JetBrains_Mono'] text-sm mb-2">// Certifications</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white">Professional Certs</h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+          <div class="bg-[#111111] border border-gray-800 rounded-xl p-6 hover:border-emerald-500/50 transition-all duration-300">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-12 h-12 bg-emerald-500/10 rounded-lg flex items-center justify-center">
+                <i class="fab fa-java text-emerald-400 text-xl"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-white">Java Complete Course</h3>
+                <p class="text-gray-500 text-sm">Udemy</p>
+              </div>
+            </div>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              Comprehensive Java programming course covering core concepts, OOP, collections, and advanced topics.
+            </p>
           </div>
 
-          <!-- contact info -->
-          <div class="w-1/4 flex flex-col items-center space-y-6 ">
-            <h1 class="text-xl font-medium">Contact</h1>
-            <div class="flex space-x-5">
-
-              <!-- Email -->
-              <div class="hover:scale-110 transition">
-                  <a href="mailto:raihan.shikder84@gmail.com" target="_blank" class="text-gray-300 hover:text-gray-100 text-3xl">
-                    <i class="fa fa-envelope"></i>
-                  </a>
+          <div class="bg-[#111111] border border-gray-800 rounded-xl p-6 hover:border-emerald-500/50 transition-all duration-300">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-12 h-12 bg-emerald-500/10 rounded-lg flex items-center justify-center">
+                <i class="fas fa-certificate text-emerald-400 text-xl"></i>
               </div>
-
-              <!-- Phone -->
-              <div class="hover:scale-110 transition" >
-                  <a href="tel:+8801580841980" target="_blank" class="text-gray-300 hover:text-gray-100 text-3xl">
-                    <i class="fa fa-phone"></i>
-                  </a>
+              <div>
+                <h3 class="text-lg font-bold text-white">SQA Career Launchpad</h3>
+                <p class="text-gray-500 text-sm">Ostad</p>
               </div>
+            </div>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              Software Quality Assurance training program covering testing methodologies and best practices.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-              <!-- LinkedIn -->
-              <div class="hover:scale-110 transition" >
-                  <a href="https://www.linkedin.com/in/raihan89/" target="_blank" class="inline-flex rounded-2xl text-gray-300 hover:text-blue-400 text-4xl">
-                    <i class="fab fa-linkedin"></i>
-                  </a>
-              </div>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 sm:py-28">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <p class="text-emerald-400 font-['JetBrains_Mono'] text-sm mb-2">// Contact</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white">Get In Touch</h2>
+        </div>
 
-              <!-- GitHub -->
-              <div class="hover:scale-110 transition">
-                  <a href="https://github.com/Raihan-89" target="_blank" class="inline-flex text-gray-300 hover:text-gray-900 text-4xl">
-                    <i class="fab fa-github"></i>
-                  </a>
+        <div class="grid lg:grid-cols-2 gap-12">
+          <!-- Contact Info -->
+          <div class="space-y-6">
+            <p class="text-gray-400 text-base sm:text-lg leading-relaxed">
+              I'm always excited to connect with new people and discuss interesting opportunities. Feel free to reach out through any of these:
+            </p>
+
+            <div class="space-y-4">
+              <a href="mailto:raihan.shikder84@gmail.com" class="flex items-center gap-4 bg-[#111111] border border-gray-800 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300 group">
+                <div class="w-12 h-12 bg-emerald-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-envelope text-emerald-400 text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-white font-semibold group-hover:text-emerald-400 transition">Email</h3>
+                  <p class="text-gray-400 text-sm">raihan.shikder84@gmail.com</p>
+                </div>
+              </a>
+
+              <a href="tel:+8801580841980" class="flex items-center gap-4 bg-[#111111] border border-gray-800 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300 group">
+                <div class="w-12 h-12 bg-emerald-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-phone text-emerald-400 text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-white font-semibold group-hover:text-emerald-400 transition">Phone</h3>
+                  <p class="text-gray-400 text-sm">+880-1580841980</p>
+                </div>
+              </a>
+
+              <div class="flex items-center gap-4 bg-[#111111] border border-gray-800 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300">
+                <div class="w-12 h-12 bg-emerald-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-map-marker-alt text-emerald-400 text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-white font-semibold">Location</h3>
+                  <p class="text-gray-400 text-sm">Dhaka, Bangladesh</p>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- quick links -->
-          <div class="w-1/4 max-sm:w-[50%] flex flex-col items-center space-y-2">
-            <h1 class="text-xl font-medium underline">Quick Links</h1>
-            <div class="pages max-sm:text-lg max-sm:pb-2 flex items-center">
-              <ul class="flex flex-col space-y-1 max-sm:space-y-2 text-center">
-                <li class="hover:scale-102 sm:self-start">
-                  <a class="hover-page-links" href="#home">Home</a>
-                </li>
-                <li class="hover:scale-102 sm:self-start">
-                  <a class="hover-page-links" href="#about">About</a>
-                </li>
-                <li class="hover:scale-102 sm:self-start">
-                  <a class="hover-page-links" href="#skill">Skills</a>
-                </li>
-                <li class="hover:scale-102 sm:self-start">
-                  <a class="hover-page-links" href="#project">Projects</a>
-                </li>
-                <li class="hover:scale-102 sm:self-start">
-                  <a class="hover-page-links" href="#education">Education</a>
-                </li>
-                <li class="hover:scale-102 sm:self-start">
-                  <a class="hover-page-links" href="#contact">Contact</a>
-                </li>
-              </ul>
-            </div>
+          <!-- Contact Form -->
+          <div class="bg-[#111111] border border-gray-800 rounded-xl p-6 sm:p-8">
+            <form name="contact" method="post" netlify class="space-y-5">
+              <div>
+                <label class="block text-sm font-medium text-gray-300 mb-2">Name</label>
+                <input name="name" type="text" required placeholder="Your name"
+                  class="w-full bg-[#0a0a0a] border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all text-sm" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-300 mb-2">Email</label>
+                <input name="email" type="email" required placeholder="email@example.com"
+                  class="w-full bg-[#0a0a0a] border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all text-sm" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-300 mb-2">Message</label>
+                <textarea name="message" rows="5" required placeholder="Write your message here..."
+                  class="w-full bg-[#0a0a0a] border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all text-sm resize-none"></textarea>
+              </div>
+              <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 text-black font-semibold py-3 rounded-lg transition-all duration-300">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800 bg-[#0a0a0a]">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="text-center md:text-left">
+            <a href="#home" class="text-lg font-bold font-['JetBrains_Mono'] text-emerald-400">&lt;Raihan /&gt;</a>
+            <p class="text-gray-500 text-sm mt-1">Jr Software Engineer | Java Backend Developer</p>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <a href="https://github.com/Raihan-89" target="_blank" class="text-gray-400 hover:text-white transition" aria-label="GitHub">
+              <i class="fab fa-github text-xl"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/raihan89/" target="_blank" class="text-gray-400 hover:text-blue-400 transition" aria-label="LinkedIn">
+              <i class="fab fa-linkedin text-xl"></i>
+            </a>
+            <a href="https://codeforces.com/profile/Raihan89" target="_blank" class="text-gray-400 hover:text-blue-400 transition" aria-label="Codeforces">
+              <i class="fas fa-code text-xl"></i>
+            </a>
+            <a href="mailto:raihan.shikder84@gmail.com" class="text-gray-400 hover:text-emerald-400 transition" aria-label="Email">
+              <i class="fas fa-envelope text-xl"></i>
+            </a>
+            <a href="tel:+8801580841980" class="text-gray-400 hover:text-emerald-400 transition" aria-label="Phone">
+              <i class="fas fa-phone text-xl"></i>
+            </a>
           </div>
         </div>
 
-        <hr class="bg-white w-full">
-
-        <!-- Copyright Section -->
-        <div class="w-[80%] max-sm:w-[95%] max-sm:gap-5 flex justify-between">
-          <div class="">&copy; <span id="year"></span> Md. Raihan Shikder. All rights reserved.</div>
-          <div class="">Built with <i class="fa fa-heart text-white animate-pulse"></i>  using Tailwind</div>
+        <div class="border-t border-gray-800 mt-6 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p class="text-gray-500 text-sm">
+            &copy; <span id="year"></span> Md. Raihan Shikder. All rights reserved.
+          </p>
+          <p class="text-gray-500 text-sm">
+            Built with <i class="fas fa-heart text-emerald-400"></i> using Tailwind CSS
+          </p>
         </div>
       </div>
     </footer>
-    <!-- Somethig Write to check github set up -->
-    <script src="/assets/js/script.js"></script>
+
+    <script src="assets/js/script.js"></script>
   </body>
 </html>
